@@ -32,7 +32,9 @@ export const Button: FC<IButtonProps> = ({
                    type={onClick ? 'button' : 'submit'}
                    onClick={onClick as any}
     >
-        <img src={icon} alt={'button icon'}/>
+        {
+            icon && <img src={icon} alt={'button icon'}/>
+        }
         <div className={s.text_wrapper}>
             <span>{message}</span>
         </div>
