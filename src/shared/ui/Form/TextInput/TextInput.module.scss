@@ -1,0 +1,21 @@
+
+.input {
+  position: relative;
+  width: 100%;
+  outline: none;
+  border-radius: var(--brd-rad-sml);
+  font-size: 21px;
+  background: var(--clr-inpt);
+  padding: 3px 10px;
+  height: 100%;
+
+  border: 2px solid transparent;
+  &:focus{
+    outline: none;
+  }
+  color: var(--clr-fnt-sc);
+  &[data-error=true] {
+    border-color:  var(--clr-red);
+    color: var(--clr-red)
+  }
+}

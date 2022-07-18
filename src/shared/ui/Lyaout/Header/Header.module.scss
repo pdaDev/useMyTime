@@ -1,0 +1,14 @@
+
+.header {
+  width: 100%;
+  height: 60px;
+  box-shadow: var(--shdw);
+  padding: 0 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: var(--clr-secondary);
+}

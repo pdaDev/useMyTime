@@ -1,0 +1,17 @@
+@import "app/index";
+
+.total_card {
+  @extend %card;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 330px;
+  .data {
+    display: flex;
+    margin-top: 15px;
+    align-items: flex-end;
+  }
+  h3 {
+    line-height: 0.8em;
+  }
+}

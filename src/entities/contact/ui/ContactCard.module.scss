@@ -1,0 +1,19 @@
+@import 'app/index';
+
+.contact_card {
+  @extend %card;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  min-width: 525px;
+  h3 {
+    text-transform: uppercase;
+  }
+  .fio {
+    margin-top: 15px;
+    margin-bottom: 7px;
+  }
+  .contacts {
+    margin-bottom: 4px;
+    }
+  }

@@ -1,0 +1,106 @@
+@import "app/index";
+
+.choose_program_form {
+
+  &[data-form-type='mobile'] {
+    .titles:last-child {
+      background: red;
+    }
+  }
+
+  @extend %card;
+  max-width: 700px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+
+  .titles {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+
+  .containers {
+    width: 100%;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+
+    .program_container {
+      padding: 15px 12px;
+      background: var(--clr-inpt);
+      border-radius: var(--brd-rad-sml);
+
+      .program_wrapper {
+
+        height: 60px;
+        padding: 5px;
+
+        &[data-show=false] {
+          display: none;
+        }
+
+        .program {
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: var(--clr-secondary);
+          border-radius: var(--brd-rad-sml);
+          .button {
+            cursor: pointer;
+            outline: none;
+            border: none;
+            &[data-show=false] {
+              opacity: 0;
+            }
+            &[data-button-type='select'] {
+              background: var(--clr-primary);
+              &::after {
+                font-weight: bold;
+                content: '+';
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--clr-secondary);
+                font-size: 48px;
+                transform: translateY(-4px);
+              }
+            }
+            &[data-button-type='unselect'] {
+              background: red;
+              &::after {
+                font-weight: bold;
+                content: '🗙';
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--clr-secondary);
+                font-size: 32px;
+                transform: translate(1px,-5px);
+              }
+            }
+
+            width: 50px;
+            height: 50px;
+            border-radius: var(--brd-rad-sml);
+          }
+        }
+      }
+
+    }
+  }
+  .buttons {
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-end;
+  }
+}

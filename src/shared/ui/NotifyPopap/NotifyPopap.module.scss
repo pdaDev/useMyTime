@@ -1,0 +1,61 @@
+@import "app/index";
+
+.notify_popap {
+  @extend %card;
+  height: 70px;
+  min-width: 325px;
+  word-wrap: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  font-weight: var(--fnt-sb);
+  padding: 0 20px;
+  &:before {
+    width: 15px;
+    content: ' ';
+    position: absolute;
+    left: 0;
+    height: 100%;
+  }
+  &[data-notify-type='success'] {
+    &:before {
+      background: greenyellow;
+    }
+    svg {
+      fill: greenyellow;
+    }
+
+  }
+  &[data-notify-type='error'] {
+    &:before {
+      background: var(--clr-red);
+    }
+    svg {
+      fill: var(--clr-red)
+    }
+
+  }
+  &[data-notify-type='warning'] {
+    &:before {
+      background: orange;
+    }
+    svg {
+      fill: orange;
+    }
+  }
+}
+
+.popap_wrapper {
+  &[data-show=false] {
+    display: none;
+  }
+  display: flex;
+  width: 100%;
+  z-index: 20;
+  justify-content: center;
+  position: fixed;
+  top: 5%;
+}

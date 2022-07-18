@@ -1,0 +1,41 @@
+@import "app/index";
+
+.project_card {
+  @extend %card;
+  width: 100%;
+  max-width: 1093px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+
+  .priority {
+    font-size: var(--fnt-size-semi-lg);
+    color: var(--clr-secondary);
+    display: flex;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    justify-content: center;
+    font-weight: var(--fnt-bold);
+    align-items: center;
+    background: var(--clr-primary);
+    margin-left: 20px;
+    @extend %loading
+  }
+  .time {
+    display: flex;
+    align-items: center;
+  }
+  .title_wrapper {
+    flex-grow: 1;
+    display: inline-flex;
+    height: auto;
+  }
+}
+
+.projects_list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

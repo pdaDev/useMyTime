@@ -1,0 +1,100 @@
+.select {
+  font-size: var(--fnt-size-semi-lg);
+  &[data-size='medium'] {
+    font-size: var(--fnt-size-md);
+
+  }
+  &[data-size='small'] {
+    font-size: var(--fnt-size-semi-md);
+  }
+  .custom-select {
+    &__control {
+      background: var(--clr-secondary) !important;
+      border-radius: 50px !important;
+      border: none !important;
+      display: inline-flex !important;
+      outline: none !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+
+    &__single-value {
+      font-size: 1em !important;
+      font-weight: var(--fnt-sb) !important;
+      color: var(--clr-fnt-pr) !important;
+    }
+
+    &__indicator {
+      svg {
+        width: 32px !important;
+        height: 32px !important;
+        fill: black !important;
+      }
+    }
+
+    &__indicator-separator {
+      display: none !important;
+
+    }
+
+    &__menu {
+      padding: 5px 10px !important;
+      background-color: var(--clr-secondary) !important;
+      border: none !important;
+      width: auto !important;
+      box-shadow: var(--shdw) !important;
+      border-radius: var(--brd-rad-sml) !important;
+    }
+
+    &__option {
+      font-weight: var(--fnt-med);
+      font-size: 1em;
+      cursor: pointer !important;
+      border-radius: var(--brd-rad-sml) !important;
+
+    }
+
+    &__option--is-selected {
+      background: var(--clr-primary) !important;
+      color: var(--clr-secondary) !important;
+    }
+
+    &__option--is-focused {
+
+    }
+  }
+
+  &[data-select-type='secondary'] {
+    .custom-select {
+      &__single-value {
+        color: var(--clr-fnt-sc) !important;
+      }
+
+      &__indicator {
+        svg {
+          fill: var(--clr-fnt-sc) !important;
+        }
+      }
+
+      &__control {
+        background: transparent !important;
+      }
+    }
+
+  }
+  &[data-select-type='primary'] {
+    box-shadow: var(--shdw);
+  }
+  &[data-select-type='list'] {
+    .custom-select {
+      &__control {
+        display: none !important;
+      }
+      &__menu-list {
+        gap: 0.4em;
+        display: inline-flex !important;
+      }
+    }
+
+  }
+}

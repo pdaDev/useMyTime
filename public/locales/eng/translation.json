@@ -1,0 +1,92 @@
+{
+  "auth": {
+    "title": "Sign in",
+    "login": "Login",
+    "password": "Password",
+    "button": "Sign in"
+  },
+  "navbar": {
+    "projects": "PROJECTS",
+    "about": "About app",
+    "contacts": "Contacts",
+    "options": "Settings",
+    "logout": "Log out",
+    "employees": "Employees"
+  },
+  "options": {
+    "chooseTheme": "Choose theme",
+    "chooseLanguage": "Choose language",
+    "light": "Light",
+    "dark": "Dark",
+    "ru": "Rus",
+    "eng": "Eng"
+  },
+  "createProject": {
+    "title": "Create project",
+    "projectTitle": "Project title",
+    "projectPriority": "Project priority",
+    "deadline": "Deadline",
+    "createButton": "create project",
+    "description": "Description",
+    "declineButton": "decline"
+  },
+  "createTask": {
+    "title": "Create task",
+    "taskTitle": "Task title",
+    "deadline": "Deadline",
+    "date": "Date",
+    "time": "Time",
+    "min": "m",
+    "hour": "h"
+
+  },
+  "projects": {
+    "title": "Projects",
+    "sortBy": "Sort by",
+    "priority": "priority",
+    "totalTime": "Total time"
+  },
+  "project": {
+    "description": "Description",
+    "tasks": "Project tasks",
+    "deadLine": "Deadline",
+    "report": "Report for",
+    "programs": {
+      "chooseProgram": "Choose program",
+      "chosenPrograms": "Chosen programs"
+    },
+    "downloadReport": "Download report",
+    "startFor2Weeks": "Statistic for last 2 weeks",
+    "activities": "Activities",
+    "totalTime": "Total",
+    "state": "Condition"
+  },
+  "contacts": {
+    "connectWithDev": "Connect with developers",
+    "sendMessage": "send",
+    "clear": "clear"
+  },
+  "profile": {
+    "post": "Post",
+    "dep": "Department",
+    "phoneNumber": "Phone number",
+    "email": "Email",
+    "me": "My profile"
+  },
+  "app": {
+    "locales": {
+      "since": "since",
+      "to": "to"
+    },
+    "empty": "Empty"
+  },
+  "form": {
+    "accept": "accept",
+    "decline": "decline",
+    "required": "Its required field"
+  },
+  "calendar": {
+    "selectedDate": "Chosen date",
+    "selectedTime": "Chosen time"
+  }
+}

@@ -1,0 +1,23 @@
+@import "app/index.scss";
+
+.project_title, .description_block, .project_timer {
+  @extend %card;
+  padding: 15px 30px
+}
+
+.project_info_block {
+  display: grid;
+  gap: 24px;
+  grid-template-areas: "title title"
+  "timer description"
+;
+}
+.project_title {
+  grid-area: title;
+}
+.project_timer {
+  grid-area: timer;
+}
+.description_block {
+  grid-area: description;
+}

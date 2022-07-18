@@ -1,0 +1,24 @@
+@import "app/index";
+
+.chat_container {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+  .title_wrapper {
+    margin-left: 20px;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.chat_with_devs {
+  @extend %card;
+  padding: 24px;
+  width: 100%;
+  display: inline-block;
+  .buttons_block {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+}

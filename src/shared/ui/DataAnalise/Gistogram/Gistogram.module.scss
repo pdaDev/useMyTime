@@ -1,0 +1,72 @@
+@import "app/index";
+
+.gistogram {
+  @extend %card;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;;
+
+  .gistogram_container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    grid-template-rows: 200px 30px;
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+    margin-top: 40px;
+    position: relative;
+  }
+  .line {
+    width: 100%;
+    align-self: flex-start;
+    height: 2px;
+    opacity: 0.3;
+    background: var(--clr-fnt-sc);
+  }
+  .data_value {
+    transform: translateY(-30px);
+    opacity: 0;
+    width: 100%;
+    display: flex;
+    color: var(--clr-fnt-sc);
+    font-size: var(--fnt-size-semi-md);
+    font-weight: var(--fnt-sb);
+    justify-content: center;
+    transition: 0.5s;
+  }
+  .diagram_container {
+    display: grid;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .legendEl {
+    transform: translateY(-7px);
+    color: var(--clr-fnt-sc);
+    font-size: var(--fnt-size-semi-md);
+    font-weight: var(--fnt-sb);
+  }
+  .column {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    &:hover + .data_value{
+      opacity: 1;
+    }
+    background: var(--clr-primary);
+    border-radius: var(--brd-rad-sml);
+    animation: show 1s forwards;
+    @keyframes show {
+      from {
+        height: 0;
+      }
+      to {
+        height: 100%;
+      }
+
+    }
+
+  }
+}

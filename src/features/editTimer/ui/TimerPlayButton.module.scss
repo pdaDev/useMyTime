@@ -1,0 +1,50 @@
+
+.timer_play_button {
+  cursor: pointer;
+  position: relative;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    background: var(--clr-primary);
+    border-radius: 300px;
+    top: 0;
+    left: 8.3%;
+    opacity: 0;
+  }
+  user-select: none;
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 25%;
+    position: absolute;
+    height: 100%;
+    border-radius: 300px;
+    background: var(--clr-primary);
+    top: 0;
+    right: 8.3%;
+    opacity: 0;
+  }
+  width: 24px;
+  height: 24px;
+  img {
+    width: inherit;
+    height: inherit;
+    opacity: 1;
+  }
+
+  &[ data-play-status = true] {
+    &::after, &::before {
+      opacity: 1;
+    }
+    img {
+      opacity: 0;
+    }
+  }
+  &[data-size='large'] {
+    width: 80px;
+    height: 80px;
+  }
+}

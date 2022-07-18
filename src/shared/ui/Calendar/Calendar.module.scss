@@ -1,0 +1,166 @@
+@import "app/index";
+
+.calendar {
+  @extend %card;
+  display: block;
+  width: 100%;
+  max-width: 375px;
+  height: auto;
+}
+
+%left-side-border-radius {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+%right-side-border-radius {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.grid {
+  display: grid;
+  font-size: var(--fnt-size-semi-md);
+  font-weight: var(--fnt-bold);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  row-gap: 3px;
+
+  .secondary_el {
+    color: var(--clr-inpt);
+  }
+
+  .primary_el {
+    color: var(--clr-fnt-pr);
+    cursor: pointer;
+    position: relative;
+  }
+
+
+
+
+
+  .primary_el, .secondary_el {
+    justify-self: center;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    user-select: none;
+
+
+  }
+
+  .primary_el {
+    position: relative;
+
+    &.current_day {
+      background: var(--clr-secondary);
+      border: 2px solid var(--clr-primary)
+    }
+    &.active {
+      color: var(--clr-secondary);
+      background: var(--clr-primary);
+    }
+
+    &.sub_active {
+      border: none;
+      background: var(--clr-primary);
+      color: white;
+    }
+
+    &.sub_active.left_with_no_border {
+      @extend %left-side-border-radius;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 40%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: var(--clr-primary);
+        transform: translateX(-100%);
+        position: absolute;
+
+      }
+    }
+
+    &.sub_active.right_with_no_border {
+      @extend %right-side-border-radius;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: var(--clr-primary);
+        transform: translateX(100%);
+        position: absolute;
+
+      }
+    }
+  }
+}
+
+
+.legend {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.buttons_block {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+  justify-content: flex-end;
+
+
+}
+
+.navigation_block {
+  display: inline-flex;
+  align-items: center;
+  min-width: 150px;
+  justify-content: space-between;
+  margin-bottom: 7px;
+
+}
+
+.output {
+  & > div {
+    display: flex;
+    transition: .2s;
+
+    &:hover {
+      background: var(--clr-inpt);
+    }
+
+    margin-top: 14px;
+    margin-bottom: 10px;;
+
+    cursor: pointer;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 50px;
+  }
+
+  & div.active {
+    background: var(--clr-inpt);
+
+  }
+
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+
+

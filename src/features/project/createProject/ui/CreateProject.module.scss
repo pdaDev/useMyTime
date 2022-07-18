@@ -1,0 +1,118 @@
+@import "app/index";
+
+.create_project_button_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.create_project_form {
+  @extend %card;
+  display: inline-flex;
+  flex-direction: column;
+  height: auto;
+
+  .img {
+    cursor: pointer;
+  }
+
+  form {
+    margin-top: 15px;
+    textarea {
+      margin-top: 5px;
+      height: 200px;
+    }
+
+    input[type=text] {
+      width: 80%;
+    }
+  }
+
+  .twoElOnRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    margin-bottom: 5px;
+  }
+
+  .define_project_scope {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .choose_date {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    &:hover {
+      background: var(--clr-inpt);
+    }
+  }
+
+  .error_message {
+
+  }
+
+  .select_dates_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .select_date_wrapper {
+      display: flex;
+      align-items: center;
+      padding: 3px 5px;
+      cursor: pointer;
+      border-radius: 50px;
+
+      &:hover {
+        background: var(--clr-inpt);
+      }
+    }
+  }
+
+  .select_priority {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+
+    .priority {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--clr-inpt);
+      color: var(--clr-secondary);
+
+      &.active {
+        background: var(--clr-primary);
+      }
+
+      border-radius: 50%;
+    }
+  }
+
+
+  .buttons_block {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: flex-end;
+
+  }
+
+}

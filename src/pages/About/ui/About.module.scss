@@ -1,0 +1,8 @@
+@import "app/index";
+
+.about {
+  @extend %card;
+  width: 100%;
+  padding: 25px 40px;
+
+}

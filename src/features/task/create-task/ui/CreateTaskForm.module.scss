@@ -1,0 +1,89 @@
+@import "app/index";
+
+.create_task_form {
+  @extend %card;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  .define_name {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  form {
+    margin-top: 15px;
+    textarea {
+      height: 150px;
+    }
+  }
+  .set_deadLine_wrapper {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    .set_date {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .set_time {
+      display: flex;
+      & > div:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      & > div:last-child {
+        margin-left: 10px;
+      }
+      .next_time_buttons_wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        align-items: center;
+        .addTime {
+          width: 40px;
+          cursor: pointer;
+          height: 40px;
+          transition: .2s;
+          background: var(--clr-inpt);
+          &:hover {
+            background: var(--clr-fnt-sc);
+          }
+          &:active {
+            background: var(--clr-primary);
+          }
+
+          color: var(--clr-secondary);
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+
+  }
+  .date_wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 3px 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--clr-inpt);
+      border-radius: 50px;
+
+    }
+  }
+  .buttons_block {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+
+}

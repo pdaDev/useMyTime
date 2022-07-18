@@ -1,0 +1,24 @@
+@import "app/index";
+
+.task_card {
+  @extend %card;
+  padding: 20px;
+  display: flex;
+  max-width: 1093px;
+
+
+  height: auto;
+  .time {
+    display: flex;
+  }
+  .title_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    height: auto;
+    transform: translateY(15%);
+
+
+  }
+}

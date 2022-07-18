@@ -1,0 +1,13 @@
+
+.circle_timer {
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+.number_timer {
+  position: absolute;
+  top: 54%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+
+}

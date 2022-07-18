@@ -1,0 +1,86 @@
+@import 'app/index';
+.choose_time_clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--clr-fnt-pr);
+  font-size: var(--fnt-size-semi-md);
+  font-weight: var(--fnt-bold);
+  @extend %card;
+  padding: 35px 20px 20px 20px;
+  width: 375px;
+  height: auto;
+  .cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  & > div {
+    cursor: pointer;
+  }
+}
+
+.active {
+  color: red
+}
+
+.round_wrapper {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}
+
+.hours {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid var(--clr-inpt);
+  outline: 5px solid var(--clr-inpt);
+
+
+}
+.decade_minutes {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--clr-inpt);
+
+}
+.minutes {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--clr-secondary);
+}
+.time {
+  display: flex;
+}
+.buttons_block {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.output {
+  margin-top: 15px;
+  display: flex;
+  & > div {
+    transition: .2s;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 50px;
+    &.active {
+      background: var(--clr-inpt);
+    }
+    &:hover {
+      background: var(--clr-inpt);
+    }
+  }
+  width: 100%;
+  justify-content: space-between;
+}

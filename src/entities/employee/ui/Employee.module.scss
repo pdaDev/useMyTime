@@ -1,0 +1,6 @@
+@import "app/index";
+
+.employee_card {
+  padding: 24px;
+  @extend %card;
+}

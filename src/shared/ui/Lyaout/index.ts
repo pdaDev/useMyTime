@@ -1,0 +1,7 @@
+export {Layout} from './Layout/Layout'
+export {Header} from './Header/Header'
+export {Content} from './Content/Content'
+export {Navbar} from './Navbar/Navbar'
+export {Popap} from './Popap/Popap'
+export {Center} from './Center/Center'
+export {PageTitle} from './PageTitle/PageTitle'

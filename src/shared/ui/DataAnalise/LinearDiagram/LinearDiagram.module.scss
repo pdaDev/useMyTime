@@ -1,0 +1,48 @@
+@import "app/index";
+
+.linear_gistogram {
+  @extend %card;
+  width: 100%;
+  max-width: 1093px;
+  display: flex;
+  flex-direction: column;
+  .gistogram {
+    display: flex;
+    flex-direction: column;
+  }
+  .line_with_value {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .stat {
+    margin-top: 10px;
+   display: flex;
+  }
+  .line {
+    margin-top: 15px;
+  }
+  .animated_line {
+    background: var(--clr-primary);
+    border-radius: 50px;
+    height: 100%;
+    animation: open 1s forwards;
+  }
+  .value_wrapper {
+    opacity: 0;
+    animation: show .5s forwards .8s;
+    @keyframes show  {
+      to {
+        opacity: 1;
+      }
+    }
+  }
+  @keyframes open {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+}

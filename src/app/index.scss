@@ -1,0 +1,15 @@
+@import './styles/index.';
+@import "@fontsource/inter";
+
+
+* {
+  font-family: 'Inter', serif;
+  box-sizing: border-box;
+}
+body {
+ min-height: 100%;
+  padding: 0;
+}
+#root {
+  height: 100%;
+}

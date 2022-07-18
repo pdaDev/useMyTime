@@ -1,0 +1,7 @@
+@import "app/index";
+
+.switchers_block {
+  @extend %card;
+  display: flex;
+  flex-direction: column;
+}

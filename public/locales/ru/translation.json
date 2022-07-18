@@ -1,0 +1,94 @@
+{
+  "auth": {
+    "title": "Вход",
+    "login": "Логин",
+    "password": "Пароль",
+    "button": "Войти"
+
+  },
+  "navbar": {
+    "projects": "МОИ ПРОЕКТЫ",
+    "about": "О приложении",
+    "contacts": "Контакты",
+    "options": "Настройки",
+    "logout": "Выйти",
+    "employees": "Сотрудники"
+  },
+  "options": {
+    "chooseTheme": "Выбор темы",
+    "chooseLanguage": "Выбор языка",
+    "light": "Светлая",
+    "dark": "Темная",
+    "ru": "Рус",
+    "eng": "Англ"
+  },
+  "createProject": {
+    "title": "Создать проект",
+    "projectTitle": "Название проекта",
+    "projectPriority": "Приоритет проекта",
+    "deadline": "Сроки проекта",
+    "description": "Описание",
+    "createButton": "создать проект",
+    "declineButton": "отменить"
+  },
+  "createTask": {
+    "title": "Создать задачу",
+    "taskTitle": "Название задачи",
+    "deadline": "Cрок сдачи",
+    "date": "Дата",
+    "time": "Время",
+    "min": "м",
+    "hour": "ч"
+
+  },
+  "projects": {
+    "title": "Мои проекты",
+    "sortBy": "Сортировать по",
+    "priority": "приоритету",
+    "totalTime": "Общее время",
+    "noneProjects": "У вас пока нет проектов"
+  },
+  "project": {
+    "description": "Описание",
+    "tasks": "Задачи проекта",
+    "deadLine": "Срок сдачи",
+    "report": "Отчетность за",
+    "programs": {
+      "chooseProgram": "Выбрать программу",
+      "chosenPrograms": "Выбранные программы"
+    },
+    "downloadReport": "Скачать отчет",
+    "startFor2Weeks": "Статистика за последние 2 недели",
+    "activities": "Активности",
+    "totalTime": "Всего",
+    "state": "Состояние"
+  },
+  "contacts": {
+    "connectWithDev": "Связаться с разарботчиками",
+    "sendMessage": "отправить",
+    "clear": "очистить"
+  },
+  "profile": {
+    "post": "Должность",
+    "dep": "Отдел",
+    "phoneNumber": "Номер телефона",
+    "email": "Почта",
+    "me": "Мой профиль"
+  },
+  "app": {
+    "locales": {
+      "since": "с",
+      "to": "по"
+    },
+    "empty": "Ничего не найдено"
+  },
+  "form": {
+    "accept": "принять",
+    "decline": "отменить",
+    "required": "Это обязательное поле"
+  },
+  "calendar": {
+    "selectedDate": "Выбранная дата",
+    "selectedTime": "Выбранное время"
+  }
+}

@@ -1,0 +1,17 @@
+@import "app/index";
+
+.hidden_input {
+  input, textarea, p {
+    @extend %input
+  }
+  p {
+    transition: .2s;
+    border-radius: var(--brd-rad-sml);
+    &:hover {
+      background-color: var(--clr-inpt);
+    }
+  }
+}
+.hidden {
+  display: none;
+}

@@ -1,0 +1,24 @@
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .title_block {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    .sort {
+      width: 100%;
+      flex-grow: 1;
+      display: flex;
+      gap: 10px;
+    }
+  }
+  .nothing_found, .create_button {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+}

@@ -1,0 +1,18 @@
+
+.validation_el_wrapper {
+
+  h5 {
+    transition: .3s;
+    color: var(--clr-red);
+    font-weight: var(--fnt-reg);
+    font-size: var(--fnt-size-sml);
+    opacity: 1;
+    margin: 0;
+  }
+  &[data-has-error=true] h5 {
+    opacity: 1;
+  }
+  input {
+    display: none;
+  }
+}
