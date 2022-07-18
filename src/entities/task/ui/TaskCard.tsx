@@ -21,7 +21,7 @@ export const TaskCard: FC<ITaskCard> = ({data, loading}) => {
     return <div className={s.task_card}>
         <div className={s.title_wrapper}>
             <Title type={4}
-                   message={data?.name}
+                   message={data?.name || ''}
             />
             <div className={s.time}>
                 <Title type={4}
