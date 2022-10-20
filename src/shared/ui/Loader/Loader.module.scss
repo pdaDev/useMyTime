@@ -22,6 +22,17 @@
   align-items: center;
   width: 80px;
   height: 80px;
+
+}
+.loader_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  &[data-loader-type=inline] {
+    display: inline-flex;
+    width: auto;
+  }
 }
 .group {
   position: relative;

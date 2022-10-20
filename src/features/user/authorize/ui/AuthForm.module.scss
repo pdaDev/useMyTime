@@ -5,6 +5,7 @@
   @extend %card;
   @extend %mobile-full-screen;
   width: 100%;
+  margin: var(--grid-gap);
   max-width: 450px;
   height: 500px;
   display: flex;
@@ -23,6 +24,15 @@
     justify-content: space-between;
     flex-grow: 1;
     width: 100%;
+    .flex_center {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      & > div {
+        margin-bottom: 24px;
+        width: 100%;
+      }
+    }
   }
   .login_wrapper {
     margin-bottom: 5px;

@@ -49,7 +49,6 @@ const slice = createSlice({
 export const init = () => async (dispatch: Dispatch<any>) => {
     try {
         const token = getToken()
-        console.log()
         if (token) {
             await dispatch(authme(token))
         }

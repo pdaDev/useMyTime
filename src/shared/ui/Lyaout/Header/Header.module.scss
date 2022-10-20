@@ -9,6 +9,14 @@
   align-items: center;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 10;
   background: var(--clr-secondary);
+  @media (max-width: 1097px) {
+    padding: 0 50px;
+  }
+  @media (max-width: 1425px) {
+    padding: 0 90px;
+  }
+
 }

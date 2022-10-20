@@ -1,0 +1,35 @@
+
+.filter_list {
+  display: flex;
+  gap: var(--grid-gap);
+
+  width: 100%;
+  flex-grow: 5;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @media (max-width: 767px) {
+    overflow: scroll;
+  }
+
+
+  .filter {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 15px;
+    font-size: var(--fnt-size-semi-lg);
+    font-weight: var(--fnt-sb);
+    border-radius: 20px;
+    background: var(--clr-secondary);
+    color: var(--clr-fnt-pr);
+    transition: .3s;
+
+    &.active {
+      background: var(--clr-primary);
+      color: var(--clr-secondary);
+
+    }
+  }
+
+}

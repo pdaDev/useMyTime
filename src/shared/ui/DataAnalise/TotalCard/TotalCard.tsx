@@ -18,12 +18,23 @@ export const TotalCard: FC<ITotalCard> = (
         loading
     }
 ) => {
-    const loadingStatus = (!title || !totalValue || !measure) || loading
+    const loadingStatus = (!title || (totalValue === undefined || totalValue === null)  || !measure) || loading
     return <div className={s.total_card}>
         <Title type={3} message={title || ''} loading={loadingStatus}/>
-        <div className={s.data}>
-            <Title type={3} message={totalValue?.toString() || ''} size={72} color={'main'}/>
-            <Title type={3} message={measure || ''} size={42} color={'secondary'}/>
-        </div>
+      <div className={s.data_container}>
+          <div className={s.data}>
+              <Title type={4}
+                     message={totalValue?.toString() || ''}
+                     color={'main'}
+                     loading={loadingStatus}
+              />
+              &nbsp;
+              <Title type={4}
+                     message={measure || ''}
+                     color={'secondary'}
+                     loading={loadingStatus}
+              />
+          </div>
+      </div>
     </div>
 }

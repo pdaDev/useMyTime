@@ -4,18 +4,25 @@
     "login": "Login",
     "password": "Password",
     "button": "Sign in"
+
   },
   "navbar": {
-    "projects": "PROJECTS",
-    "about": "About app",
+    "projects": "MY PROJECTS",
+    "about": "About",
     "contacts": "Contacts",
-    "options": "Settings",
+    "options": "Options",
     "logout": "Log out",
-    "employees": "Employees"
+    "employees": "Employees",
+    "dataManagement": "Data management"
   },
+  "mobileBar": {
+    "projects": "projects",
+    "profile": "Personal area"
+  },
+
   "options": {
-    "chooseTheme": "Choose theme",
-    "chooseLanguage": "Choose language",
+    "chooseTheme": "Theme choice",
+    "chooseLanguage": "Language choice",
     "light": "Light",
     "dark": "Dark",
     "ru": "Rus",
@@ -25,33 +32,101 @@
     "title": "Create project",
     "projectTitle": "Project title",
     "projectPriority": "Project priority",
-    "deadline": "Deadline",
-    "createButton": "create project",
+    "deadline": "Project deadline",
+    "typeOfProject": "Project type",
+    "typeOfDirection": "Type of direction",
     "description": "Description",
+    "order": "Order",
+    "createButton": "create project",
     "declineButton": "decline"
   },
   "createTask": {
     "title": "Create task",
     "taskTitle": "Task title",
-    "deadline": "Deadline",
+    "editTaskTitle": "Edit task",
+    "deadline": "Task deadline",
     "date": "Date",
     "time": "Time",
     "min": "m",
     "hour": "h"
 
   },
+
   "projects": {
-    "title": "Projects",
+    "title": "My projects",
     "sortBy": "Sort by",
     "priority": "priority",
-    "totalTime": "Total time"
+    "name": "title",
+    "start_time": "start date",
+    "end_time": "end date",
+    "type": "type",
+    "direction_type": "type of direction",
+    "order": "order",
+    "deadline": "Deadline",
+    "totalTime": "Total time",
+    "noneProjects": "You don't have projects yet"
+  },
+  "invite": {
+    "success": "The invitation was successfully accepted",
+    "error": "Some error happend",
+    "goToProject": "GO TO PROJECT"
   },
   "project": {
     "description": "Description",
-    "tasks": "Project tasks",
-    "deadLine": "Deadline",
-    "report": "Report for",
+    "analyse": {
+      "total": {
+        "title": "Total",
+        "hour": "hour",
+        "hours": "hours",
+        "min": "min",
+        "sec": "sec",
+        "h": "h"
+      },
+      "condition": "Condition",
+      "activities": "Activities",
+      "todayActivities": "Today activities",
+      "statisticFor2Weeks": "Statistic for last 2 weeks"
+    },
+    "deadline": "Deadline",
+    "priority": "Priority",
+    "type": "Type",
+    "direction_type": "Direction type",
+    "delete": "Delete",
+    "order": "Order",
+    "start_date": "Start date",
+    "report": "Report",
+    "tasks": {
+      "title": "Project tasks",
+      "all": "All",
+      "fulfilled": "Fulfilled",
+      "not_fulfilled": "Not fulfilled",
+      "my": "My"
+    },
+    "reportProps": {
+      "today": "today",
+      "twoweeks": "2 weeks",
+      "month": "month",
+      "chooseDate": "choose date",
+      "reset": "reset"
+    },
+    "together": "Members",
+    "owner": "Founder",
+    "invite": {
+      "title": "Invite",
+
+      "byEmail": {
+        "title": "Invite by email",
+        "email": "Email",
+        "instruction":  "Please, enter email of employee, who you want to invite to the project"
+      },
+      "byLink": {
+        "title": "Invite by link",
+        "instruction": "share this link with employee, who you want to invite to the project",
+        "button": "copy"
+      }
+    },
     "programs": {
+      "noPrograms": "You don't choose programs for project",
       "chooseProgram": "Choose program",
       "chosenPrograms": "Chosen programs"
     },
@@ -59,34 +134,69 @@
     "startFor2Weeks": "Statistic for last 2 weeks",
     "activities": "Activities",
     "totalTime": "Total",
-    "state": "Condition"
+    "state": "State"
   },
   "contacts": {
     "connectWithDev": "Connect with developers",
     "sendMessage": "send",
-    "clear": "clear"
+    "clear": "reset"
   },
   "profile": {
-    "post": "Post",
+    "post": "Appointment",
     "dep": "Department",
     "phoneNumber": "Phone number",
     "email": "Email",
-    "me": "My profile"
+    "me": "May profile"
   },
   "app": {
     "locales": {
       "since": "since",
-      "to": "to"
+      "to": "to",
+      "for": "for"
     },
-    "empty": "Empty"
+    "empty": "empty",
+    "months": {
+    }
+
+  },
+  "errors": {
+    "notSaved": "Filed to save changes",
+    "saved": "Successfully made changes",
+    "projectNotDeleted": "Failed to delete project",
+    "taskNotCreated": "Failed to create task",
+    "taskChanged": "Task was changed",
+    "taskNotChanged": "Failed to to change task",
+    "taskNotChecked": "Failed to submit task",
+    "taskNotDeleted": "Failed to delete task",
+    "messageNotSent": "Failed to send message",
+    "messageSent": "Message was sent",
+    "notAuthed": "Failed to sign in",
+    "error": "Error! Try it again",
+    "projectNotCreated": "Failed to create project"
   },
   "form": {
     "accept": "accept",
     "decline": "decline",
-    "required": "Its required field"
+    "required": "this is a required field"
   },
   "calendar": {
     "selectedDate": "Chosen date",
     "selectedTime": "Chosen time"
+  },
+  "dataManagement": {
+    "find": "Find",
+    "findBy": "Find by",
+    "projectType": {
+      "title": "Project type",
+      "abbreviation": "Abbreviation",
+      "explanation": "Description"
+    },
+    "directionType": {
+      "title": "Direction type"
+    },
+    "programs": {
+      "title": "Programs",
+      "name": "Title"
+    }
   }
 }

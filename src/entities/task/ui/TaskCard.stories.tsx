@@ -9,14 +9,3 @@ export default {
 
 export const Base: ComponentStory<typeof TaskCard> = args => <TaskCard {...args}/>
 
-
-
-Base.args = {
-    data: {
-        name: 'Самая важная задача',
-        deadline: '',
-        id: 1
-    },
-    loading: false
-
-}

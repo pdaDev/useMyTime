@@ -20,7 +20,6 @@ interface ListProps {
     countOfPages: number
     items: any[] | undefined
     loading: boolean
-    limit: number
     setPage: (page: number) => void
     createButtonRender?: () => ReactNode
     ItemEl: FC<ICard>
@@ -40,11 +39,12 @@ export const List: FCProp<ListProps> = ({
                                             items
                                         }) => {
     const {t} = useTranslation()
-    console.log(items)
     return <div className={s.list}>
 
         <div className={s.title_block}>
-            {renderTitle && renderTitle()}
+            <div className={s.title_wrapper}>
+                {renderTitle && renderTitle()}
+            </div>
             <div className={s.sort}>
                 <Title type={3}
                        message={t("projects.sortBy")}
@@ -60,7 +60,7 @@ export const List: FCProp<ListProps> = ({
 
         {
             loading
-            && Array.apply(null, new Array(5)).map(() => <ItemEl loading={true}/>)
+            && Array.apply(null, new Array(6)).map(() => <ItemEl loading={true}/>)
         }
         {items && items.length === 0 && <div className={s.nothing_found}>
             <Title type={3}
@@ -76,9 +76,15 @@ export const List: FCProp<ListProps> = ({
             </div>
 
         }
-        {countOfPages > 1 && <Paginator currentPage={currentPage}
-                                        countOfPages={countOfPages}
-                                        setPage={setPage}
-        />}
+        <div className={s.paginator_wrapper}>
+            {countOfPages > 1 && <Paginator currentPage={currentPage}
+                                            countOfPages={countOfPages}
+                                            setPage={setPage}
+            />}
+        </div>
+
     </div>
 }
+
+
+  

@@ -4,15 +4,16 @@ import {ArrowButton} from "../ArrowButton/ArrowButton";
 import {useCalendar, useSelectDate} from './Calendar.hooks'
 import {Title} from "../Title/Title";
 import {Button} from "../Form";
-import { useTranslation} from "react-i18next";
+import {useTranslation} from "react-i18next";
 import 'i18next'
+
 interface IDates {
     sinceDate: Date
     toDate: Date
 }
 
 interface ICalendar {
-    setDate: () => void
+    setDate: Function
     close: () => void
     defaultDates?: IDates | Date
     defaultChangeStatus?: 'sinceDate' | 'toDate'
@@ -37,6 +38,7 @@ export const Calendar: FC<ICalendar> = ({setDate, defaultDates, defaultChangeSta
         daysOfPastMonth,
         dayOfWeekMonthStart
     } = useCalendar(isEngLanguage)
+
     const firstEndOfWeek = 7 - dayOfWeekMonthStart
     const firstStartOfWeek = dayOfWeekMonthStart === 0 ? 1 : firstEndOfWeek + 1
     const defDate = type === "range" ? defaultDates as IDates : {sinceDate: new Date(), toDate: defaultDates as Date}
@@ -85,7 +87,7 @@ export const Calendar: FC<ICalendar> = ({setDate, defaultDates, defaultChangeSta
     }
     const isAvailableToSubmit = dates.current.toDate.getTime() < dates.current.sinceDate.getTime()
     const submit = () => {
-        setDate()
+        setDate(dates.current)
     }
 
     return <div className={s.calendar}>

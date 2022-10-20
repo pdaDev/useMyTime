@@ -6,6 +6,8 @@ import {timerReducer} from "entities/timer";
 import {profileReducer} from "../../entities/profile";
 import {ProjectApi} from 'entities/project'
 import {projectListReducer} from 'entities/project'
+import {employeesAPI} from 'entities/employee'
+
 export const store = configureStore({
     reducer: {
         app: appReducer,
@@ -13,10 +15,13 @@ export const store = configureStore({
         timer: timerReducer,
         profile: profileReducer,
         [ProjectApi.reducerPath]: ProjectApi.reducer,
+        [employeesAPI.reducerPath]: employeesAPI.reducer,
         projectsList: projectListReducer
     },
     middleware: (getDefaultMiddleware )=> {
-      return  getDefaultMiddleware().concat(ProjectApi.middleware )
+      return  getDefaultMiddleware()
+          .concat(ProjectApi.middleware)
+          .concat(employeesAPI.middleware)
     }
 
 })

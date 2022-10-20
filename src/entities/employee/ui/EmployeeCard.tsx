@@ -1,5 +1,5 @@
 import {FC} from "react";
-import s from 'Employee.module.scss'
+import s from './Employee.module.scss'
 import {Title} from "../../../shared";
 
 

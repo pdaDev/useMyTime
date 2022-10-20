@@ -2,23 +2,70 @@
 
 .task_card {
   @extend %card;
-  padding: 20px;
   display: flex;
   max-width: 1093px;
+  padding: calc(var(--grid-gap) / 2) var(--grid-gap);
+  align-items: center;
+  border: 3px solid transparent;
 
-
-  height: auto;
+  &[data-active=true] {
+    border-color:  var(--clr-primary);
+  }
   .time {
     display: flex;
+    align-items: center;
+    & > div {
+      display: flex;
+      gap: 10px;
+    }
   }
-  .title_wrapper {
+  .task_wrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
     height: auto;
-    transform: translateY(15%);
+    .title_wrapper {
+      display: flex;
+      .submit_button {
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        border-radius: 50%;
+        @media  (max-width: 567px) {
+          width: 35px;
+          height: 35px;
 
+        }
+      }
+    }
+  }
+  .delete_button, .edit_button {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: var(--brd-rad-sml);
+    @extend %loading;
+    margin-left: 15px;
+  }
+  @media (max-width: 567px) {
+    .delete_button, .edit_button {
+      width: 35px;
+      height: 35px;
+      border-radius: 12px;
+    }
 
+    .delete_button, .edit_button {
+      margin-left: 10px
+    }
+    h4 {
+      font-size: 14px;
+    }
+    .time {
+      & > div:first-child {
+        display: none;
+      }
+    }
   }
 }

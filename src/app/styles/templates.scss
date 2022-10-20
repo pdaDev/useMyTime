@@ -1,7 +1,7 @@
 
 
 %card {
-  padding: 24px;
+  padding: var(--grid-gap);
   background-color: var(--clr-secondary);
   border-radius: var(--brd-rad-sml);
   box-shadow: var(--shdw);
@@ -12,24 +12,59 @@
   background: var(--clr-inpt);
   padding: 3px 10px;
 }
-%textarea {
 
-}
 %only-for-mobile {
   @media (min-width: var(--phone)) {
     display: none;
   }
-  @media only-for-desktop {
-    @media (max-width: var(--phone)) {
-      display: none;
-    }
+}
+%only-for-table {
+  @media (min-width: var(--tablet)) {
+    display: none;
   }
 }
+%only-for-desktop {
+  @media (max-width: 576px) {
+    display: none;
+  }
+}
+
 %mobile-full-screen {
   @media (max-width: var(--phone)) {
     border: none;
     width: 100%;
     height: 100%;
     box-shadow: none;
+  }
+}
+%delete-button {
+  display: flex;
+  color: red;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .3s;
+  background: lighten(red, 45);
+  &:hover {
+    background: lighten(red, 40);
+  }
+}
+
+%drop-menu-scrollbar {
+  padding-right: 10px;
+  &::-webkit-scrollbar {
+    width: 5px;
+
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--clr-inpt);
+    border-radius: 5px;
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--clr-primary);
+    border-radius: 10px;
   }
 }

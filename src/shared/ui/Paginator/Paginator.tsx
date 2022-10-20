@@ -33,7 +33,7 @@ export const Paginator: FC<IPaginator> = ({currentPage, setPage, countOfPages}) 
     }, [countOfPages])
     const countOfGroupPages = Math.min(maxCountVisibleEls - 2 , countOfPages - 2 )
     const onChange = (newValue: any) => {
-        setPage(+newValue)
+        setPage(+newValue.value)
     }
     const getValue = (value: string) => {
         return options.find(option => option.value === value)
@@ -41,7 +41,7 @@ export const Paginator: FC<IPaginator> = ({currentPage, setPage, countOfPages}) 
     const groupPageStart = isShowRightDots
         ? Math.max(2, Math.ceil(currentPage - (maxCountVisibleEls - 3) / 2))
         : Math.max(countOfPages - 1 - countOfGroupPages, 2)
-    console.log(options)
+
     return (
         <div className={s.paginator}>
             <>

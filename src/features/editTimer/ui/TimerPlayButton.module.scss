@@ -1,13 +1,23 @@
+@import "app/index";
 
 .timer_play_button {
   cursor: pointer;
   position: relative;
+  @extend %loading;
+  &[data-loading=true] {
+    border-radius: 50%;
+    &::before, &::after {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
   &::before {
     content: '';
     display: inline-block;
     width: 25%;
     height: 100%;
     position: absolute;
+    z-index: 1;
     background: var(--clr-primary);
     border-radius: 300px;
     top: 0;

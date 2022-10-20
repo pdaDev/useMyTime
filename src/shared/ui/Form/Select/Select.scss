@@ -1,4 +1,10 @@
 .select {
+  display: inline-block;
+  background: transparent;
+  & > div {
+    display: inline-block;
+    background: transparent;
+  }
   font-size: var(--fnt-size-semi-lg);
   &[data-size='medium'] {
     font-size: var(--fnt-size-md);
@@ -62,6 +68,24 @@
     &__option--is-focused {
 
     }
+    &__menu-list {
+      padding-right: 10px;
+      &::-webkit-scrollbar {
+        width: 5px;
+
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--clr-inpt);
+        border-radius: 5px;
+
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--clr-primary);
+        border-radius: 10px;
+      }
+    }
   }
 
   &[data-select-type='secondary'] {
@@ -89,10 +113,18 @@
     .custom-select {
       &__control {
         display: none !important;
+
       }
+      &__single-value {
+        font-size: var(--fnt-size-md) !important;
+        }
       &__menu-list {
         gap: 0.4em;
         display: inline-flex !important;
+      }
+      &__menu {
+        margin: 0;
+        position: relative;
       }
     }
 

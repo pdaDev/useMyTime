@@ -1,0 +1,19 @@
+.button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--brd-rad-sml);
+  border: 3px solid var(--clr-primary);
+  background: transparent;
+  svg {
+    fill: var(--clr-primary);
+  }
+  &[data-is-active=true] {
+    background: var(--clr-primary);
+    svg {
+      fill: var(--clr-secondary)
+    }
+  }
+}

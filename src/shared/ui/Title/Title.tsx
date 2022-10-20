@@ -23,7 +23,6 @@ export const Title: FC<ITitle> = ({
                                   }) => {
     let TitleType: keyof JSX.IntrinsicElements = `h${type}`
     const isLoading = loading || !message
-    console.log(isLoading, message)
     return (
         <TitleWrapper size={size} weight={weight} loading={isLoading}
         >

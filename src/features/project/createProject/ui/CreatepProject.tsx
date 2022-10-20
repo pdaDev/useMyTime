@@ -1,16 +1,17 @@
-import {FC, useRef, useState} from "react";
+import {FC, useEffect, useRef, useState} from "react";
 import s from './CreateProject.module.scss'
 import {SubmitHandler, useForm} from "react-hook-form";
-import {Calendar, Form, Layout, Title, useNotify} from 'shared'
+import {Calendar, Form, Layout, Title, toJSONDate, useNotify, useRedirect} from 'shared'
 import {TextArea} from "shared/ui/Form";
 import {CalendarIcon} from "shared/ui/Icons";
 import {useTranslation} from "react-i18next";
 import 'i8next'
-import {useCreateProjectMutation} from "entities/project";
+import {getTypeValue, useCreateProjectMutation, useGetTypesOfProjectQuery} from "entities/project";
+import {OptionsBlock} from "./OptionsBlock";
 
 interface FormValues {
     name: string
-
+    order?: string
     description: string
 }
 
@@ -19,22 +20,32 @@ interface CreateProjectFormProps {
 }
 
 export const CreateProjectForm: FC<CreateProjectFormProps> = ({close}) => {
-    const {register, handleSubmit, formState: {errors}} = useForm<FormValues>({mode: "onChange"})
+    const {
+        register,
+        handleSubmit,
+        formState: {errors,},
+        unregister
+    } = useForm<FormValues>(
+        {mode: "onChange", shouldUnregister: true, reValidateMode: 'onBlur'})
+    const {t} = useTranslation()
     const [selectedPriority, setPriorityNumber] = useState<number>(1)
     const [calendarState, setCalendarState] = useState<'toDate' | 'sinceDate' | 'closed'>('closed')
     const selectedDate = useRef({sinceDate: new Date(), toDate: new Date()})
-    const [createProject, {isError}] = useCreateProjectMutation()
+    const [createProject, {isError, data, isLoading}] = useCreateProjectMutation()
 
-    useNotify(isError,'Не удалось создать проект', 'error')
+    useRedirect(`/project/${data?.id}`, !!data, true)
+    useNotify(isError, t("errors.projectNotCreated"), 'error')
 
     const onSubmit: SubmitHandler<FormValues> = async data => {
-
         await createProject({
             name: data.name,
             priority: selectedPriority,
-            deadline: selectedDate.current.toDate.toLocaleDateString(),
+            end_date: toJSONDate(selectedDate.current.toDate),
+            start_date: toJSONDate(selectedDate.current.sinceDate),
             description: data.description || '',
-            users: []
+            type: +typeOfProject,
+            direction_type: +typeOfDirection,
+            order: data.order || null
         }).unwrap()
 
     }
@@ -45,9 +56,17 @@ export const CreateProjectForm: FC<CreateProjectFormProps> = ({close}) => {
         setCalendarState('closed')
 
     }
-    const {t} = useTranslation()
 
+    const {data: projectTypes } = useGetTypesOfProjectQuery()
     const countOfAvailablePriorities = 5
+    const [typeOfProject, setTypeOfProject] = useState<string>('')
+    const [typeOfDirection, setDirectionType] = useState<string>('')
+    const hasOrder = (projectTypes && getTypeValue(projectTypes!, +typeOfProject) === "Заказ") || false
+    useEffect(() => {
+        if (!hasOrder) {
+            unregister('order')
+        }
+    }, [hasOrder, register, unregister])
     return <>
         <div className={s.create_project_form}>
             <Title type={2} message={t("createProject.title")}/>
@@ -74,15 +93,15 @@ export const CreateProjectForm: FC<CreateProjectFormProps> = ({close}) => {
                         <div className={s.select_priority}>
                             {
                                 Array.apply(null, new Array(countOfAvailablePriorities))
-                                    .map((_, i) => <div className={`${s.priority} ${i + 1 === selectedPriority && s.active}`}
-                                                        onClick={() => selectPriority(i + 1)}
+                                    .map((_, i) => <div
+                                        className={`${s.priority} ${i + 1 === selectedPriority && s.active}`}
+                                        onClick={() => selectPriority(i + 1)}
                                     >
                                         {i + 1}
                                     </div>)
                             }
                         </div>
                     </div>
-
                 </div>
 
                 <div className={s.define_project_scope}>
@@ -104,7 +123,14 @@ export const CreateProjectForm: FC<CreateProjectFormProps> = ({close}) => {
                         </div>
                     </div>
                 </div>
-
+                <OptionsBlock registerInput={register}
+                              setTypeOfProject={setTypeOfProject}
+                              setDirectionType={setDirectionType}
+                              typeOfDirection={typeOfDirection}
+                              typeOfProject={typeOfProject}
+                              error={errors.order?.message}
+                              hasOrder={hasOrder}
+                />
                 <Title type={3}
                        message={t("createProject.description")}
                        weight={'medium'}
@@ -126,6 +152,7 @@ export const CreateProjectForm: FC<CreateProjectFormProps> = ({close}) => {
                     <Form.Button message={t("createProject.createButton")}
                                  type={'primary'}
                                  size={'small'}
+                                 disabled={isLoading}
                     />
                 </div>
 

@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {AppSelectors, appUseDispatch, init} from "../store";
 import {Layout, Loader} from "../../shared";
 
-export const withInit = (Component: FC) => {
+export const    withInit = (Component: React.ElementType) => {
      const Wrapper:FC = () => {
          const isInit = useSelector(AppSelectors.getInitStatus)
          const dispatch = appUseDispatch()

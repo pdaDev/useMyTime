@@ -1,4 +1,4 @@
-import {FC} from "react";
+    import {FC} from "react";
 import s from './ContactCard.module.scss'
 import {Title} from "../../../shared";
 

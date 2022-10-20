@@ -1,0 +1,21 @@
+@import "app/index";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap:  var(--grid-gap);
+  .logout {
+    @extend %delete-button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--fnt-bold);
+    font-size: var(--fnt-size-semi-lg);
+    text-transform: uppercase;
+    padding: 12px;
+    @media (min-width: 567px) {
+      display: none;
+
+    }
+  }
+}

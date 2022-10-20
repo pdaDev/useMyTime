@@ -1,0 +1,36 @@
+
+.download_report_select_wrapper {
+  display: inline-block;
+  .report-select {
+    &__control {
+      background: transparent !important;
+      border: none !important;
+      cursor: pointer;
+    }
+    &__single-value {
+      font-size: var(--fnt-size-semi-lg);
+      font-weight: var(--fnt-bold);
+      color: var(--clr-primary);
+    }
+    &__menu {
+      font-size: var(--fnt-size-md);
+      font-weight: var(--fnt-reg);
+      border: none;
+      border-radius: var(--brd-rad-sml) !important;
+      overflow: hidden;
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+    &__option {
+      border-radius: var(--brd-rad-sml);
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      text-align: center;
+    }
+
+  }
+}

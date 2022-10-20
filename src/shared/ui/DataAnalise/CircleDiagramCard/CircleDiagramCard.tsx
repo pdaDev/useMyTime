@@ -16,15 +16,15 @@ export const CircleDiagramCard:FC<ICircleDiagramCard> = (
         parts,
         loading = false
     }) => {
-    const loadingStatus = (!title || !part || !parts) || loading
+    const loadingStatus =  loading
     return <div className={s.circle_diagram_card}>
         <Title type={3} message={title || ''} loading={loadingStatus}/>
         <div className={s.diagram}>
-            <CircleDiagram parts={parts || 0} part={loadingStatus ? 0 : part}/>
+            <CircleDiagram parts={parts || 0} part={loadingStatus ? 0 : part!}/>
             <div className={s.data}>
                 {!loadingStatus && <>
                     <Title type={2}
-                           message={`${~~ (part / parts * 100)}%`}
+                           message={`${~~ (part! / parts! * 100)}%`}
                            loading={loading}
                     />
                     <Title type={4}

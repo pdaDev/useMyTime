@@ -7,7 +7,7 @@ import {ProjectList} from "entities/project";
 
 export const Projects: FC = () => {
 
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     useTabTitle(t("projects.title"))
     return <>
         <ProjectList/>

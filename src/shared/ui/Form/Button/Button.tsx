@@ -21,7 +21,7 @@ export const Button: FC<IButtonProps> = ({
                                              fullWidth = false,
                                              size = 'medium',
                                              icon,
-                                             onClick
+                                             onClick, config
 
                                          }) => {
     return <button data-button-type={type}
@@ -31,6 +31,7 @@ export const Button: FC<IButtonProps> = ({
                    data-size={size}
                    type={onClick ? 'button' : 'submit'}
                    onClick={onClick as any}
+                   {...config}
     >
         {
             icon && <img src={icon} alt={'button icon'}/>

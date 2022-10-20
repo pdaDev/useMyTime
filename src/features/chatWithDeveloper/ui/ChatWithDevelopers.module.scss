@@ -1,21 +1,35 @@
 @import "app/index";
 
+@media (max-width: 567px) {
+  .title_wrapper {
+    display: flex;
+    margin-left: 0;
+    justify-content: center;
+  }
+  .chat_container {
+
+  }
+}
+
 .chat_container {
   width: 100%;
   display: flex;
   margin-top: 30px;
   flex-direction: column;
+
   .title_wrapper {
     margin-left: 20px;
     margin-bottom: 1.2rem;
+
   }
 }
 
 .chat_with_devs {
   @extend %card;
-  padding: 24px;
+  padding: var(--grid-gap);
   width: 100%;
   display: inline-block;
+
   .buttons_block {
     display: flex;
     justify-content: flex-end;

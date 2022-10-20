@@ -5,18 +5,22 @@ interface IHiddeninput {
     type: 'input' | 'textarea'
     onSave: (newValue: string) => void
     config?: object
-    defaultText: string
+    enableEdit: boolean
+    semanticType?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
-export const HiddenInput: FC<IHiddeninput> = (
+export const ChangeInput: FC<Omit<IHiddeninput, 'enableEdit'> & { defaultText: string }> = (
     {
         type,
         config,
         defaultText,
-        onSave
+        onSave,
+        semanticType = 'p'
     }) => {
     const InputType: keyof JSX.IntrinsicElements = `${type}`
+
     const [isActive, setIsActive] = useState<boolean>(false)
+    const SemanticType: keyof JSX.IntrinsicElements = `${semanticType}`
     const activate = () => {
         setIsActive(true)
         setTimeout(() => ref.current.focus(), 0)
@@ -28,17 +32,39 @@ export const HiddenInput: FC<IHiddeninput> = (
     const [text, setText] = useState<string>(defaultText)
     const ref = useRef<any>(null)
     return (
-        <div onDoubleClick={activate} onBlur={disactivate} className={s.hidden_input}>
+        <div onClick={activate}
+             onBlur={disactivate}
+             className={s.hidden_input}
+             data-enable-input={true}
+        >
 
             {isActive ? <InputType type={'text'}
                                    {...config}
                                    value={text}
                                    ref={ref}
                                    onChange={e => setText(e.target.value)}
-            /> : <p>{text}</p>}
+            /> : <div className={s.first_el}>
+                <SemanticType>{text}</SemanticType>
+            </div>
+            }
         </div>
 
     )
 
+}
 
+export const HiddenInput: FC<IHiddeninput & { defaultText: string | undefined }> = ({enableEdit, ...props}) => {
+    const SemanticType: keyof JSX.IntrinsicElements = `${props.semanticType || 'p'}`
+    if (!enableEdit) {
+        return <div className={s.hidden_input}
+                    data-loading={props.defaultText === undefined}>
+            <div className={s.first_el}>
+                <SemanticType>{props.defaultText}</SemanticType>
+            </div>
+        </div>
+    }
+    if (props.defaultText === undefined) {
+        return <div className={s.hidden_input} data-loading={true}/>
+    }
+    return <ChangeInput {...props} defaultText={props.defaultText!}/>
 }

@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
-export const typesOfSorting = ['priority']
+export const typesOfSorting = ['priority', 'name', 'start_time', 'end_time', 'type', 'direction_type', 'order']
 
 interface IProjectListSlice {
     limit: number,

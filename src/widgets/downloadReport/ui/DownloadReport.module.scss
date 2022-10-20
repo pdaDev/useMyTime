@@ -1,0 +1,78 @@
+@import "app/index";
+.container {
+  display: flex;
+  gap: var(--grid-gap);
+  justify-content: space-between;
+  .choose_period {
+    width: 100%;
+    padding: 12px;
+    @extend %card;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > div {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .edit_date {
+      border-radius: var(--brd-rad-sml);
+      padding:0 10px;
+      cursor: pointer;
+      height: 100%;
+      transition: .3s;
+
+      &:hover {
+        background: var(--clr-inpt);
+      }
+    }
+    .reset_button {
+      @extend %delete-button;
+      height: 100%;
+      border-radius: var(--brd-rad-sml);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--fnt-size-semi-lg);
+      font-weight: var(--fnt-bold);
+      padding: 6px 15px;
+      width: 100%;
+
+    }
+  }
+  .download_report {
+    button {
+      padding: 12px;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      height: 100%;
+    }
+  }
+  @media (max-width: (767px)) {
+    flex-direction: column;
+    gap: var(--grid-gap);
+    .choose_period {
+      flex-wrap: wrap;
+      & > div {
+        gap: 5px;
+        display: flex;
+        align-items: center;
+      }
+      .edit_date {
+        padding: 0 5px;
+      }
+      gap: 12px;
+    }
+  }
+  @media (max-width: 567px) {
+    & > div {
+      gap: 3px;
+      display: flex;
+      align-items: center;
+    }
+    .edit_date {
+      padding: 0;
+    }
+  }
+}

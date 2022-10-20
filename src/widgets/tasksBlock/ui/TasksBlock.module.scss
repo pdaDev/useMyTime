@@ -2,6 +2,48 @@
 
 .task_block_wrapper {
     display: flex;
+    gap: 10px;
+    margin-top: 20px;
     width: 100%;
     flex-direction: column;
+}
+.task_card_wrapper {
+    cursor: pointer;
+}
+.title_block {
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+    display: flex;
+    @media (max-width: 767px) {
+        flex-direction: column;
+        gap: var(--grid-gap);
+    }
+    .title_wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+    }
+
+}
+.sort {
+    width: 100%;
+    flex-grow: 1;
+    justify-content: flex-end;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.nothing_found, .create_button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.paginator_wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
 }

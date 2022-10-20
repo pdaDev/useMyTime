@@ -1,6 +1,8 @@
 export { ProjectCard } from './ui/ProjectCard'
 export { ProjectList } from './ui/ProjectList'
+export { ProjectInfoEl } from './ui/ProjectInfoEl'
 export * from './api/project.api'
 export * from './model/project.slice'
 export * as ProjectListSelectors from './model/project.selectors'
+export * from './lib/helpers'
 export * from './lib/projec.types'

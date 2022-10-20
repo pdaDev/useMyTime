@@ -1,0 +1,8 @@
+@import "app/index";
+
+.invite_page_wrapper {
+  @extend %card;
+  max-width: 700px;
+  max-height: 500px;
+
+}

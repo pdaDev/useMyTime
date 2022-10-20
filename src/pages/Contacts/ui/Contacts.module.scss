@@ -2,5 +2,10 @@
 .contacts_grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: var(--grid-gap);
+  @media (max-width: 836px) {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+
+  }
 }

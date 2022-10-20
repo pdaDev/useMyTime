@@ -18,4 +18,7 @@
     border-color:  var(--clr-red);
     color: var(--clr-red)
   }
+  &[type="password"] {
+    padding-right: 42px;
+  }
 }

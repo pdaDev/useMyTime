@@ -12,8 +12,14 @@
     "contacts": "Контакты",
     "options": "Настройки",
     "logout": "Выйти",
-    "employees": "Сотрудники"
+    "employees": "Сотрудники",
+    "dataManagement": "Управление данными"
   },
+  "mobileBar": {
+    "projects": "проекты",
+    "profile": "Личный кабинет"
+  },
+
   "options": {
     "chooseTheme": "Выбор темы",
     "chooseLanguage": "Выбор языка",
@@ -27,13 +33,17 @@
     "projectTitle": "Название проекта",
     "projectPriority": "Приоритет проекта",
     "deadline": "Сроки проекта",
+    "typeOfProject": "Тип проекта",
+    "typeOfDirection": "Вид направления",
     "description": "Описание",
+    "order": "Заказ",
     "createButton": "создать проект",
     "declineButton": "отменить"
   },
   "createTask": {
     "title": "Создать задачу",
     "taskTitle": "Название задачи",
+    "editTaskTitle": "Редактировать задачу",
     "deadline": "Cрок сдачи",
     "date": "Дата",
     "time": "Время",
@@ -41,19 +51,82 @@
     "hour": "ч"
 
   },
+
   "projects": {
     "title": "Мои проекты",
     "sortBy": "Сортировать по",
     "priority": "приоритету",
+    "name": "названию",
+    "start_time": "дате начала",
+    "end_time": "дате окончания",
+    "type": "типу",
+    "direction_type": "виду направления",
+    "order": "заказу",
+    "deadline": "Срок",
     "totalTime": "Общее время",
     "noneProjects": "У вас пока нет проектов"
   },
+  "invite": {
+    "success": "Приглашение успешно принято",
+    "error": "Увы, при принятии приглашения произошла ошибка",
+    "goToProject": "ПЕРЕЙТИ К ПРОЕКТУ"
+  },
   "project": {
     "description": "Описание",
-    "tasks": "Задачи проекта",
-    "deadLine": "Срок сдачи",
-    "report": "Отчетность за",
+    "analyse": {
+      "total": {
+        "title": "Всего",
+        "hour": "час",
+        "hours": "часов",
+        "min": "мин",
+        "sec": "сек",
+        "h": "ч"
+      },
+      "condition": "Состояние",
+      "activities": "Активности",
+      "todayActivities": "Сегодняшняя активность",
+      "statisticFor2Weeks": "Статистика работ за последние 2 недели"
+    },
+    "deadline": "Срок сдачи",
+    "priority": "Приоритет",
+    "type": "Тип",
+    "direction_type": "Вид направления",
+    "delete": "Удалить",
+    "order": "Заказ",
+    "start_date": "Дата начала",
+    "report": "Отчетность",
+    "tasks": {
+      "title": "Задачи проекта",
+      "all": "Все",
+      "fulfilled": "Выполненные",
+      "not_fulfilled": "Невыполненные",
+      "my": "Мои"
+    },
+    "reportProps": {
+      "today": "сегодня",
+      "twoweeks": "2 недели",
+      "month": "месяц",
+      "chooseDate": "выбрать дату",
+      "reset": "сбросить"
+    },
+    "together": "Участники",
+    "owner": "Создатель",
+    "invite": {
+      "title": "Пригласить",
+
+      "byEmail": {
+        "title": "Пригласить по электронной почте",
+        "email": "Адрес электронной почты",
+        "instruction":  "Пожалуйста, введите адресс электронной почты сотрудника, которого хотите пригласить к проекту"
+      },
+      "byLink": {
+        "title": "Пригласить по ссылке",
+        "instruction": "Передайте данную ссылку человеку, которого хотите пригласить в проект",
+        "button": "скопировать"
+      }
+    },
     "programs": {
+      "noPrograms": "Вы еще не выбрали программы для данного проекта",
       "chooseProgram": "Выбрать программу",
       "chosenPrograms": "Выбранные программы"
     },
@@ -78,9 +151,28 @@
   "app": {
     "locales": {
       "since": "с",
-      "to": "по"
+      "to": "по",
+      "for": "за"
     },
-    "empty": "Ничего не найдено"
+    "empty": "Ничего не найдено",
+    "months": {
+    }
+
+  },
+  "errors": {
+    "notSaved": "Не удалось внести изменения",
+    "saved": "Успешно внесены изменения",
+    "projectNotDeleted": "Не удалось удалить проект",
+    "taskNotCreated": "Не удалось создать задачу",
+    "taskChanged": "Задача успешно изменена",
+    "taskNotChanged": "Не удалось изменить задачу",
+    "taskNotChecked": "Не удалось отметить задачу",
+    "taskNotDeleted": "Не удалось удалить задачу",
+    "messageNotSent": "Не удалось отправить сообщение",
+    "messageSent": "Сообщение отправлено",
+    "notAuthed": "Не удалось войти",
+    "error": "Ошибка! Попробуйте еще раз",
+    "projectNotCreated": "Не удалось создать проект"
   },
   "form": {
     "accept": "принять",
@@ -90,5 +182,21 @@
   "calendar": {
     "selectedDate": "Выбранная дата",
     "selectedTime": "Выбранное время"
+  },
+  "dataManagement": {
+    "find": "Найти",
+    "findBy": "Искать по",
+    "projectType": {
+      "title": "Тип проекта",
+      "abbreviation": "Аббревиатура",
+      "explanation": "Описание"
+    },
+    "directionType": {
+      "title": "Тип направления"
+    },
+    "programs": {
+      "title": "Программы",
+      "name": "Название"
+    }
   }
 }

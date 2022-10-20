@@ -1,0 +1,47 @@
+@import "app/index";
+
+.dialog_menu {
+  @extend %card;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  transition: .3s;
+  height: auto;
+  padding: 24px;
+  &[data-open=true] {
+    .title {
+      margin-bottom: 30px;
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 20px;
+      margin-right: 10px;
+      transition: .3s;
+      @media (max-width: 767px) {
+        height: 12px ;
+
+      }
+
+    }
+
+
+  }
+}
+.dialog_menu_container {
+  transition: .3s;
+  padding: calc(var(--grid-gap) /2 );
+  &:first-child {
+    padding-top: 0;
+  }
+  &:last-child {
+    padding-bottom: 0;
+  }
+}

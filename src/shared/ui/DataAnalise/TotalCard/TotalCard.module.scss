@@ -5,13 +5,32 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  min-width: 330px;
+  width: 100%;
+  height: 100%;
+  .data_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
   .data {
     display: flex;
-    margin-top: 15px;
     align-items: flex-end;
+    font-size: 42px;
   }
   h3 {
     line-height: 0.8em;
+  }
+  h4:first-child {
+    font-size: 1.7em;
+  }
+  h4:last-child {
+    font-size: 1em;
+  }
+  @media (max-width: 567px) {
+    .data {
+      font-size: 32px;
+    }
   }
 }

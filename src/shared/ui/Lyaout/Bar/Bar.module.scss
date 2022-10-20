@@ -1,0 +1,17 @@
+
+
+.bar {
+  width: 100%;
+  @media (min-width: 567px) {
+    display: none;
+  }
+  height: 75px;
+  background: var(--clr-secondary);
+  box-shadow: rgba(19, 23, 61, 0.1) 0px -24px 64px;
+  padding:  calc(var(--grid-gap) * 2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+}

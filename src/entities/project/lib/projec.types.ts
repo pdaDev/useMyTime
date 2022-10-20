@@ -3,6 +3,7 @@ export interface IProjectListEl {
     id: number
     priority: number
     time: string
+    end_date: string
 }
 
 export interface IProjectList {

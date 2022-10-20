@@ -1,0 +1,1 @@
+export {InviteMessage as default} from './ui/InviteMessage'

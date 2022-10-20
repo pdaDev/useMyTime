@@ -11,7 +11,8 @@ interface ITextInput {
     showPassword?: boolean
     error?: any
     config?: {
-        placeholder: string
+        placeholder?: string
+        value?: string
     }
     validationType?: 'message' | 'placeholder'
 }

@@ -18,7 +18,8 @@ Base.args = {
         name: 'СИКНС НГДУ “СургутНефть”',
         priority: 2,
         time: 'mockDate',
-        id: 1
+        id: 1,
+        end_date:    '2020-12-1'
     },
     loading: false
 

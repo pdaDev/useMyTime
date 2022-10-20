@@ -3,7 +3,8 @@ import s from './ChatWithDevelopers.module.scss'
 import 'i8next'
 import {useTranslation} from "react-i18next";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {Form, Title} from 'shared'
+import {Form, Title, useNotify} from 'shared'
+import {useSendMessageToDevsMutation} from "../../../entities/employee/api/employeesAPI";
 
 interface FormValues {
     message: string
@@ -11,10 +12,14 @@ interface FormValues {
 
 export const ChatWithDevelopersForm: FC = () => {
     const { t } = useTranslation()
-    const onSubmit: SubmitHandler<FormValues> = data => {
-        console.log(data)
+    const [sendMessage, {isError, isSuccess, isLoading}] = useSendMessageToDevsMutation()
+    const onSubmit: SubmitHandler<FormValues> = async data => {
+        await sendMessage(data.message).unwrap()
+        isSuccess && reset()
     }
-    const {register, handleSubmit, formState: {errors}, resetField} = useForm<FormValues>({mode: 'onBlur'})
+    useNotify(isError, t("messagedNotSent"),'error')
+    useNotify(isSuccess, t("messageSent"), 'success')
+    const {register, handleSubmit, formState: {errors}, resetField, reset} = useForm<FormValues>({mode: 'onChange'})
     return <div className={s.chat_container}>
         <div className={s.title_wrapper}>
             <Title type={2} message={t("contacts.connectWithDev")}/>
@@ -28,9 +33,8 @@ export const ChatWithDevelopersForm: FC = () => {
                 />
                 <div className={s.buttons_block}>
                     <Form.Button type={'secondary'} message={t("contacts.clear")} onClick={() => resetField('message')}/>
-                    <Form.Button type={'primary'} message={t("contacts.sendMessage")}/>
+                    <Form.Button type={'primary'} message={t("contacts.sendMessage")} disabled={isLoading}/>
                 </div>
-
             </form>
         </div>
     </div>

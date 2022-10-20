@@ -6,6 +6,7 @@ interface userState {
     loading: boolean
     isManager: boolean
     error: null | Error
+    isAdmin: boolean
     data: Omit<IUser, 'first_name' | 'last_name' | 'password'> & { name: string, avatar: null }
 }
 
@@ -20,10 +21,12 @@ const initialState: userState = {
         id: 0,
         avatar: null
     },
-    isManager: false,
+    isManager: true,
+    isAdmin: true,
     isAuthed: false,
     loading: false,
     error: null
+
 
 }
 
@@ -33,6 +36,9 @@ const userSlice = createSlice({
     reducers: {
         setAuth: (state) => {
             state.isAuthed = true
+        },
+        resetError: state => {
+            state.error = null
         }
     }
     ,
@@ -75,6 +81,6 @@ function isError(action: AnyAction) {
 
 
 export const userReducer = userSlice.reducer
-export const {setAuth} = userSlice.actions
+export const {setAuth, resetError} = userSlice.actions
 
 

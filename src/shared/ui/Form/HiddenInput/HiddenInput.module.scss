@@ -1,17 +1,56 @@
 @import "app/index";
 
 .hidden_input {
-  input, textarea, p {
-    @extend %input
-  }
-  p {
-    transition: .2s;
-    border-radius: var(--brd-rad-sml);
+  @extend %loading;
+  width: 100%;
+  height: 100%;
+
+  &[data-enable-input=true] {
     &:hover {
-      background-color: var(--clr-inpt);
+      background: var(--clr-inpt);
     }
   }
+
+  &[data-loading=true] {
+    border-radius: 12px;
+  }
+  border-radius: var(--brd-rad-sml);
+
+  box-sizing: border-box;
+  input, textarea, .first_el {
+    box-sizing: border-box;
+    transition: .2s;
+    font-size: inherit;
+    font-weight: inherit;
+    display: block;
+    margin: 0;
+    color: inherit;
+    padding: 10px;
+    height: 100%;
+    border-radius: var(--brd-rad-sml);
+  }
+  .first_el {
+    display: inline-block;
+    padding: 0;
+    height: auto;
+    & > * {
+      text-wrap: avoid;
+      padding: 10px;
+      margin: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+  }
+  textarea, input {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: var(--clr-inpt);
+  }
+
 }
 .hidden {
   display: none;
 }
+

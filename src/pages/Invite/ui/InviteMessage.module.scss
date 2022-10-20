@@ -1,0 +1,29 @@
+@import "app/index";
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.invite_card {
+  @extend %card;
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-primary);
+  font-size: calc(var(--fnt-size-lg) * 1.1);
+  text-align: center;
+  font-weight: var(--fnt-bold);
+  min-height: 330px;
+}
+.invite_card_container {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  flex-direction: column;
+  gap: 20px;
+}
+

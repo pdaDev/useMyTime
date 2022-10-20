@@ -1,0 +1,34 @@
+@import "app/index";
+
+.priority_wrapper {
+  position: relative;
+  display: inline-block;
+
+}
+.priority {
+  @extend %loading;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  background: var(--clr-inpt);
+  font-weight: var(--fnt-bold);
+  font-size: var(--fnt-size-md);
+  display: flex;
+  color: var(--clr-secondary);
+  align-items: center;
+  justify-content: center;
+  &.active {
+    background: var(--clr-primary);
+  }
+}
+.choose_priority_form {
+  outline: none;
+  @extend %card;
+  position: absolute;
+  right: 0;
+  top:0;
+  display: inline-flex;
+  gap: 10px;
+  width: auto;
+}

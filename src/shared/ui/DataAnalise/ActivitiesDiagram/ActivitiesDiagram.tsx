@@ -7,7 +7,7 @@ import {
     findPeriodDuration,
     getTimeWithoutSeconds,
     splitIntoIntervals
-} from "../../../lib/helpers";
+} from "../../../lib";
 
 interface IActivitiesDiagram {
     title: string
@@ -23,7 +23,7 @@ interface IActivitiesDiagram {
 export const ActivitiesDiagram: FC<IActivitiesDiagram> = ({values, title}) => {
     const limits = {
         start: '8:30:00',
-        finish: '16:30:00'
+        finish: '18:30:00'
     }
     const countOfRows = values.length
     const countOfColumns = 4
@@ -44,7 +44,8 @@ export const ActivitiesDiagram: FC<IActivitiesDiagram> = ({values, title}) => {
             <Legend countOfRows={countOfRows}>
                 {
                     values.map((value) => <div key={value.name}>
-                        <Title type={5} message={value.name}/>
+                        <Title type={5}
+                               message={value.name}/>
                     </div>)
                 }
             </Legend>
@@ -82,12 +83,16 @@ export const ActivitiesDiagram: FC<IActivitiesDiagram> = ({values, title}) => {
 
 const Legend = styled.div<{countOfRows: number}>`
   width: auto;
+  min-width: 100px;
   padding-top: 30px;
   margin-right: 20px;
   height: 100%;
   align-items: center;
   display: grid;
   row-gap: 5px;
+  @media (max-width: 567px) {
+    min-width: 0;
+  }
   grid-template-rows: repeat(${({countOfRows}) => countOfRows}, 30px);
 `
 
@@ -118,5 +123,8 @@ const ElWrapper = styled.div<{ width: number, position: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media(max-width: 567px) {
+    height: 20px
+  }
 `
 

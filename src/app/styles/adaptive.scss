@@ -1,0 +1,23 @@
+@import "variables";
+
+@media (max-width: 991px) {
+  :root {
+    --fnt-size-lg: 32px;
+    --fnt-size-semi-lg: 24px;
+    --fnt-size-md: 21px;
+    --fnt-size-semi-md: 18px;
+    --fnt-size-sml: 14px;
+    --grid-gap: 16px;
+  }
+}
+
+@media (max-width: 575px) {
+  :root {
+    --fnt-size-lg: 27px;
+    --fnt-size-semi-lg: 21px;
+    --fnt-size-md: 18px;
+    --fnt-size-semi-md: 16px;
+    --fnt-size-sml: 11px;
+    --grid-gap: 12px;
+  }
+}

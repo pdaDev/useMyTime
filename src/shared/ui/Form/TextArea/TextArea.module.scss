@@ -18,22 +18,20 @@
     margin: 0;
     margin-bottom: 10px;
   }
-
-}
-
-textarea {
-  background: var(--clr-inpt);
-  font-size: var(--fnt-size-semi-lg) !important;
-  font-weight: var(--fnt-reg);
-  padding: 10px;
-  margin-bottom: 10px;
-  color: var(--clr-fnt-sc);
-  width: 100%;
-  vertical-align: top;
-  outline: none;
-  display: inline-block;
-  border: none;
-  height: 300px;
-  flex-grow: 1;
-  border-radius: var(--brd-rad-sml);
+  textarea {
+    background: var(--clr-inpt);
+    font-size: var(--fnt-size-semi-lg);
+    font-weight: var(--fnt-reg);
+    padding: 10px;
+    margin-bottom: 10px;
+    color: var(--clr-fnt-sc);
+    width: 100%;
+    vertical-align: top;
+    outline: none;
+    display: inline-block;
+    border: none;
+    height: 300px;
+    flex-grow: 1;
+    border-radius: var(--brd-rad-sml);
+  }
 }

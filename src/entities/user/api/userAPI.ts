@@ -8,14 +8,12 @@ interface authData {
 }
 
 
-
-
 export const logout = createAsyncThunk(
     'authUser',
     async (_, thunkAPI) => {
         try {
             const token = getToken()
-            await api.post('auth/token/logout/', {
+            await api.post('auth/token/logout/', {}, {
                 headers: {
                     Authorization: `Token ${token}`
                 }
@@ -70,15 +68,13 @@ export const signin = createAsyncThunk<void, authData>(
     async (body, thunkAPI) => {
         try {
             const res = await api.post('auth/token/login/', body)
-            console.log(res)
             if (res.status < 400) {
                 let token = res.data.auth_token
                 await thunkAPI.dispatch(authme(token))
                 saveToke(token)
-            } else return  thunkAPI.rejectWithValue(new Error('404'))
+            } else return thunkAPI.rejectWithValue(new Error('404'))
 
         } catch (e) {
-            console.log(e)
             return thunkAPI.rejectWithValue(e)
         }
     }
@@ -92,11 +88,10 @@ export const getProfile = createAsyncThunk<profileData, number>(
     'user/profile',
     async (id, thunkAPI) => {
         try {
-            const response = await api.get(``)
+            const response = await api.get(`/auth/users/${id}/`)
             return response.data
         } catch (e) {
-           return   thunkAPI.rejectWithValue(e)
+            return thunkAPI.rejectWithValue(e)
         }
     }
 )
-

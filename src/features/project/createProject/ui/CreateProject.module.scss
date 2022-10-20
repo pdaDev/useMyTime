@@ -6,11 +6,20 @@
   margin-top: 20px;
 }
 
+
+
 .create_project_form {
   @extend %card;
   display: inline-flex;
   flex-direction: column;
   height: auto;
+  --gap: 5px;
+  overflow: scroll;
+  @media (max-width: 567px) {
+    --gap: 10px;
+    width: 100%;
+    height: 100%;
+  }
 
   .img {
     cursor: pointer;
@@ -19,8 +28,9 @@
   form {
     margin-top: 15px;
     textarea {
-      margin-top: 5px;
+      margin-top: var(--gap);
       height: 200px;
+      font-size: var(--fnt-size-sml);
     }
 
     input[type=text] {
@@ -35,17 +45,30 @@
     & > div {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: var(--gap);
     }
 
-    margin-bottom: 5px;
+    margin-bottom: var(--gap);
+    @media (max-width: 567px) {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+
+    }
   }
 
   .define_project_scope {
     display: flex;
     justify-content: space-between;
-  }
+    @media (max-width: 567px) {
+      display: flex;
+      flex-direction: column;
 
+    }
+  }
+  .order_container {
+
+  }
   .choose_date {
     width: 50px;
     height: 50px;
@@ -72,7 +95,7 @@
     .select_date_wrapper {
       display: flex;
       align-items: center;
-      padding: 3px 5px;
+      padding: 3px var(--gap);
       cursor: pointer;
       border-radius: 50px;
 
@@ -113,6 +136,29 @@
     width: 100%;
     justify-content: flex-end;
 
+  }
+  .options_block {
+    display: flex;
+    flex-direction: column;
+    & > div:last-child {
+      display: flex;
+      gap: var(--gap);
+      flex-direction: column;
+    }
+    .type_block {
+      display: flex;
+      justify-content: space-between;
+      & > div {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+      }
+      @media (max-width: 567px) {
+        display: flex;
+        flex-direction: column;
+
+      }
+    }
   }
 
 }

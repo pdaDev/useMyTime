@@ -1,0 +1,12 @@
+
+.timer_block {
+  display: flex;
+  align-items: center;
+  .timer_wrapper {
+    cursor: pointer;
+  }
+  .timer_button_wrapper {
+    margin-left: 5px;
+  }
+
+}

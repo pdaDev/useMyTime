@@ -20,16 +20,15 @@ export const ProjectList: FC<ProjectListProps> = () => {
     const { t } = useTranslation()
     const {limit, currentPage, sortBy} = useSelector(getState)
     const dispatch = appUseDispatch()
-    const {data, isLoading} = useGetProjectsQuery({page: currentPage, limit})
+    const {data, isLoading} = useGetProjectsQuery({page: currentPage, limit, sortBy})
     const setCurrentPage = (page: number) => dispatch(setPage(page))
     const setSort = (typeOfSort: string) => dispatch(setSortBy(typeOfSort))
     const options = useOptionsFromArray(typesOfSorting, 'projects')
 
-    return <List limit={limit}
-                 renderTitle={() => <Layout.PageTitle title={t("projects.title")}/>}
+    return <List renderTitle={() => <Layout.PageTitle title={t("projects.title")}/>}
                  loading={isLoading}
                  currentPage={currentPage}
-                 countOfPages={Math.ceil(data?.count || 1 / limit)}
+                 countOfPages={Math.ceil((data?.count || 1 )/ limit)}
                  setPage={setCurrentPage}
                  sortOptions={options}
                  items={data?.results}

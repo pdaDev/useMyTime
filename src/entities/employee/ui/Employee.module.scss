@@ -1,6 +1,86 @@
 @import "app/index";
 
-.employee_card {
-  padding: 24px;
-  @extend %card;
+.employee_card, .employees_on_project {
 }
+
+.employee_management_card {
+  @extend %card;
+  display: flex;
+  padding: 8px 16px;
+  justify-content: space-between;
+  .buttons_block {
+    display: inline-flex;
+    gap: 30px;
+    .button {
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      @extend %loading;
+      border-radius: var(--brd-rad-sml)
+    }
+
+  }
+}
+
+.employees_on_project {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  justify-content: space-between;
+  & > div {
+    width: 100%;
+  }
+    .avatars_block {
+      width: 100%;
+      height: 100%;
+      margin-left: 15px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      span {
+        margin-left: 5px;
+        color: var(--clr-primary);
+        font-size: var(--fnt-size-md);
+        font-weight: var(--fnt-bold);
+      }
+    }
+  }
+  .full_list {
+    @extend %card;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    padding: 12px 24px;
+    z-index: 300;
+    max-height: 350px;
+    width: 300px;
+    .list {
+      margin-bottom: 15px;
+      @extend %drop-menu-scrollbar;
+      overflow: auto;
+      flex-direction: column;
+      display: flex;
+      gap: 10px;
+    }
+    .employee {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      .name {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      .avatar {
+        margin-left: 10px;
+      }
+    }
+  }

@@ -12,51 +12,57 @@ interface IGistogram {
     countOfValues?: number
     countOfRows?: number
     deltaY?: number
+    loading: boolean
     month: string
 
 }
 
-export const Gistogram: FC<IGistogram> = ({title, deltaY, countOfRows = 4, month, values, countOfValues}) => {
+export const Gistogram: FC<IGistogram> = ({title, loading, deltaY, countOfRows = 4, month, values, countOfValues}) => {
     const maxValue = Math.max(...values.map(x => x.y))
     const count = countOfValues || values.length
-    const delta = deltaY || ~~(maxValue / countOfRows)
-    const maxYLegendValue = delta * countOfRows
+    const delta = Math.max(deltaY || Math.ceil(maxValue / countOfRows), 1)
+    const maxYLegendValue = delta * countOfRows;
     const yLegend = Array.apply(null, new Array(countOfRows)).map((_, i) => maxYLegendValue - i * delta)
-    const legendHeight = Math.min(maxValue, maxYLegendValue) / Math.max(maxValue, maxYLegendValue) * 100
+    const legendHeight = maxValue > maxYLegendValue
+        ? Math.min(maxValue, maxYLegendValue) / Math.max(maxValue, maxYLegendValue) * 100
+        : 100
 
     return <div className={s.gistogram}>
         <Title type={3} message={title}/>
-        <div className={s.gistogram_container}>
-            <Grid count_of_rows={countOfRows} height={legendHeight}>
-                {yLegend.map((x) => <div key={x} className={s.legendEl}>{x}</div>)}
-            </Grid>
-            <div className={s.diagram_container}>
+        {
+            !loading &&
+            <div className={s.gistogram_container}>
                 <Grid count_of_rows={countOfRows} height={legendHeight}>
-                    {yLegend.map(x => <div className={s.line} key={x}/>)}
+                    {yLegend.map((x) => <div key={x} className={s.legendEl}>{x}</div>)}
                 </Grid>
-                <GistogramDataWrapper isFixedCount={!!countOfValues} count={count}>
-                    {
-                        values.map(item => <ColumnWrapper height={item.y / maxValue * 100} key={item.y}>
-                            <div className={s.column}/>
-                            <div className={s.data_value}>
-                                {item.y}
-                            </div>
+                <div className={s.diagram_container}>
+                    <Grid count_of_rows={countOfRows} height={legendHeight}>
+                        {yLegend.map(x => <div className={s.line} key={x}/>)}
+                    </Grid>
+                    <GistogramDataWrapper isFixedCount={!!countOfValues} count={14}>
+                        {
+                            values.map(item => {
+                                return <ColumnWrapper height={item.y / Math.max(maxValue, maxYLegendValue) * 100}
+                                                      key={item.y}>
+                                    <div className={s.column}/>
+                                    <div className={s.data_value}>
+                                        {item.y}
+                                    </div>
+                                </ColumnWrapper>
+                            })
+                        }
+                    </GistogramDataWrapper>
+                </div>
+                <div/>
+                <DataLegend count={count} isFixedCount={!!countOfValues}>
+                    {values.map(item => <div className={s.legendEl} key={item.x}>
+                        {item.x}
+                    </div>)}
+                </DataLegend>
 
-                        </ColumnWrapper>)
-                    }
-                </GistogramDataWrapper>
             </div>
-            <div/>
-            <DataLegend count={count} isFixedCount={!!countOfValues}>
-                {values.map(item => <div className={s.legendEl} key={item.x}>
-                    {item.x}
-                </div>)}
-            </DataLegend>
 
-        </div>
-        <Title type={3} message={month} color={'secondary'}/>
-
-
+        }        <Title type={3} message={month} color={'secondary'}/>
     </div>
 }
 
@@ -75,6 +81,12 @@ const ColumnWrapper = styled.div<{ height: number }>`
   position: relative;
   justify-self: center;
   align-self: flex-end;
+  @media (max-width: 567px) {
+    width: 12px;
+  }
+  @media (max-width: 991px) {
+    width: 16px;
+  }
 `
 const DataLegend = styled.div<{ count: number, isFixedCount: boolean }>`
   display: grid;
@@ -92,5 +104,5 @@ const GistogramDataWrapper = styled.div<{ count: number, isFixedCount: boolean }
   left: 0;
   height: 100%;
   width: 100%;
-  grid-template-columns: repeat(${props => props.count}, 1fr);  
+  grid-template-columns: repeat(${props => props.count}, 1fr);
 `

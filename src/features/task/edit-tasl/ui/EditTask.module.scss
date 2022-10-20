@@ -1,0 +1,41 @@
+@import "app/index";
+
+.edit_form {
+  @extend %card;
+  display: flex;
+  flex-direction: column;
+  .buttons_block {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.edit_task_button {
+  @media (max-width: 567px) {
+    border-radius: 12px;
+    border-width: 2px;
+  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--brd-rad-sml);
+  border: 3px solid var(--clr-primary);
+  background: transparent;
+  .icon_wrapper {
+    width: 70%;
+    height: 70%;
+    svg {
+      fill: var(--clr-primary);
+
+    }
+  }
+
+  &:hover {
+
+  }
+  &:active {
+
+  }
+}

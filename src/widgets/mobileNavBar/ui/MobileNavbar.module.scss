@@ -1,0 +1,32 @@
+
+.projects {
+  position: absolute;
+  text-transform: uppercase;
+  font-size: var(--fnt-size-semi-lg);
+  font-weight: var(--fnt-bold);
+  padding: 8px 24px;
+  background: var(--clr-primary);
+  color: var(--clr-secondary);
+  left:50%;
+  top: 0;
+  border-radius: 50px;
+  &:active {
+    background: var(--btn-hover);
+  }
+  transform: translate(-50%, -80%);
+}
+.el {
+  & > img {
+    width: 35px;
+    height: 35px;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  max-width: 60px;
+  h6 {
+    text-wrap: normal;
+    text-align: center;
+  }
+}

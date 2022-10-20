@@ -1,5 +1,5 @@
 import {FC} from "react";
-import Select, {SingleValue} from 'react-select'
+import Select from 'react-select'
 import './Select.scss'
 
 interface ISelect {
@@ -24,8 +24,8 @@ export const SelectInput: FC<ISelect> = (
     if (type === 'list') {
         config.menuIsOpen = true
     }
-    const onChange = (newValue: SingleValue<string>) => {
-        selectValue(newValue as string)
+    const onChange = (newValue: any) => {
+        selectValue(newValue.value as string)
     }
     const getValue = (value: string) => {
        return  options.find(option => option.value === value)
@@ -41,7 +41,6 @@ export const SelectInput: FC<ISelect> = (
                 isSearchable={false}
                 data-type={'large'}
                 {...config}
-
         />
     </div>
 }

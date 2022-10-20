@@ -1,28 +1,39 @@
 import {FC, useState} from "react";
 import s from './ChooseProgramForm.module.scss'
-import {Title} from 'shared'
+import {Loader, Title, useError, useNotify} from 'shared'
 import {Button} from "../../../../shared/ui/Form";
+import {useGetAllProgramsQuery, useSetProgramsForProjectMutation} from "../../../../entities/project";
 
 interface IChooseProgramForm {
     type?: 'desktop' | 'mobile',
     close: () => void
+    projectId: number
 }
 
-interface Program {
-    id: number,
-    name: string
-}
+export const ChooseProgramForm: FC<IChooseProgramForm> = ({type, close, projectId}) => {
 
-
-export const ChooseProgramForm: FC<IChooseProgramForm> = ({type}) => {
-
-    const programs: Array<Program> = [{id: 0, name: ''}]
+    const {data: programs, error, isLoading} = useGetAllProgramsQuery()
+    useError(error)
     const [selectedPrograms, setProgramInSelected] = useState<number[]>([])
+    const [setPrograms, {isError}] = useSetProgramsForProjectMutation()
+    const saveChanges = async () => {
+        if (selectedPrograms.length > 0) {
+            await setPrograms({id: projectId, programs: selectedPrograms})
+        }
+        close()
+
+    }
     const selectProgram = (programId: number) => {
         setProgramInSelected([...selectedPrograms, programId])
     }
+    useNotify(isError, 'Не удалось добавить программы к проекту', 'error')
     const unselectProgram = (programId: number) => {
         setProgramInSelected(selectedPrograms.filter(id => id !== programId))
+    }
+    if (isLoading) {
+        return <div className={s.choose_program_form} data-form-type={type}>
+            <Loader type={'block'}/>
+        </div>
     }
     return <div className={s.choose_program_form} data-form-type={type}>
         <div className={s.titles}>
@@ -33,7 +44,7 @@ export const ChooseProgramForm: FC<IChooseProgramForm> = ({type}) => {
             <div className={s.containers}>
                 <div className={s.program_container}>
                     {
-                        programs.map(program => <div className={s.program_wrapper}
+                       programs && programs.map(program => <div className={s.program_wrapper}
                                                      data-show={!selectedPrograms.includes(program.id)}
                                                      key={program.id}
                         >
@@ -48,7 +59,7 @@ export const ChooseProgramForm: FC<IChooseProgramForm> = ({type}) => {
                 </div>
                 <div className={s.program_container}>
                     {
-                        programs.map(program => <div className={s.program_wrapper}
+                      programs && programs.map(program => <div className={s.program_wrapper}
                                                      data-show={selectedPrograms.includes(program.id)}
                                                      key={program.id}
                         >
@@ -66,7 +77,7 @@ export const ChooseProgramForm: FC<IChooseProgramForm> = ({type}) => {
             :  <div className={s.containers}>
                 <div className={s.program_container}>
                     {
-                        programs.map(program => <div className={s.program_wrapper}
+                       programs && programs.map(program => <div className={s.program_wrapper}
                                                      data-show={true}
                                                      key={program.id}
                         >
@@ -83,8 +94,16 @@ export const ChooseProgramForm: FC<IChooseProgramForm> = ({type}) => {
         }
 
         <div className={s.buttons}>
-            <Button type={'secondary'} message={'очистить'} size={'small'}/>
-            <Button type={'primary'} message={'принять'} size={"small"}/>
+            <Button type={'secondary'}
+                    message={'отменить'}
+                    size={'small'}
+                    onClick={close}
+            />
+            <Button type={'primary'}
+                    message={'принять'}
+                    size={"small"}
+                    onClick={saveChanges}
+            />
         </div>
     </div>
 }

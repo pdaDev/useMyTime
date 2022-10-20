@@ -1,6 +1,6 @@
 import {FC, useEffect} from "react";
-import {Form, Title} from "shared";
-import {signin, UserSelectors} from 'entities/user'
+import {Form, Title, useNotify} from "shared";
+import {resetError, signin, UserSelectors} from 'entities/user'
 import s from './AuthForm.module.scss'
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useTranslation} from "react-i18next";
@@ -15,21 +15,24 @@ interface FormValues {
 
 
 export const AuthForm: FC = () => {
-    const {register, handleSubmit, formState: {errors}} = useForm<FormValues>({mode: 'onBlur'})
+    const {register, handleSubmit, formState: {errors}, reset} = useForm<FormValues>({mode: 'onBlur'})
     const dispatch = appUseDispatch()
+    const {t} = useTranslation()
     const {error, loading} = useSelector(UserSelectors.getState)
-    const onSubmit: SubmitHandler<FormValues> =( {login ,password}) => {
+    const onSubmit: SubmitHandler<FormValues> = ({login, password}) => {
         dispatch(signin({
             password,
             username: login
         }))
     }
+    useNotify(!!error, t("errors.notAuthed"), 'error')
     useEffect(() => {
         if (error) {
-            throw new Error(error.message)
+            dispatch(resetError())
+            reset()
         }
-    }, [error])
-    const {t} = useTranslation()
+    }, [error, reset, dispatch])
+
     return <div className={s.auth_form}>
         <div className={s.flex_center}>
             <Title type={1} message={'UseMyTime'} size={42}/>
@@ -37,18 +40,20 @@ export const AuthForm: FC = () => {
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className={s.flex_center}>
-                <div className={s.login_wrapper}>
-                    <Form.TextInput type={'text'}
-                                    registerEl={register('login', {required: 'обязательное поле'})}
-                                    error={errors.login?.message}
-                                    config={{placeholder: t("auth.login")}}
+                <div>
+                    <div className={s.login_wrapper}>
+                        <Form.TextInput type={'text'}
+                                        registerEl={register('login', {required: 'обязательное поле'})}
+                                        error={errors.login?.message}
+                                        config={{placeholder: t("auth.login")}}
+                        />
+                    </div>
+                    <Form.TextInput type={'password'}
+                                    registerEl={register('password', {required: 'обязательное поле'})}
+                                    error={errors.password?.message}
+                                    config={{placeholder: t("auth.password")}}
                     />
                 </div>
-                <Form.TextInput type={'password'}
-                                registerEl={register('password', {required: 'обязательное поле'})}
-                                error={errors.password?.message}
-                                config={{placeholder: t("auth.password")}}
-                />
             </div>
             <Form.Button type={'primary'}
                          message={t("auth.button")}

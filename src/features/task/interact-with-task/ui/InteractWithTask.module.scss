@@ -1,0 +1,68 @@
+@import "app/index";
+
+@media (max-width: 567px) {
+  .delete_task_button {
+    font-size: 32px;
+  }
+  .submit_button {
+    width: 32px;
+
+  }
+}
+
+.delete_task_button {
+  @extend %delete-button;
+  width: 100%;
+  height: 100%;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  position: relative;
+  user-select: none;
+  p {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-100%);
+  }
+}
+.submit_button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--clr-inpt);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background: transparent;
+  svg {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    fill: var(--clr-secondary);
+  }
+  &:before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .2s;
+    width: 0;
+    background: var(--clr-primary);
+    height: 0;
+    border-radius: 50%;
+  }
+  &[data-active=true] {
+    &:before {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

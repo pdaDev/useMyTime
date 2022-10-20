@@ -2,25 +2,28 @@ import {FC} from "react";
 import s from './LinearDiagram.module.scss'
 import {Title} from "../../Title/Title";
 import styled from "styled-components";
+import {convertSecondsToTimeFormat, getHour, getMinute, getSecond} from "../../../lib";
 
 interface ILinearDiagram{
     title: string
     values: Array<{
         name: string
         value: number
+        label: string
     }>
+    total?: number
 }
 
-export const LinearDiagram: FC<ILinearDiagram> = ({title, values}) => {
+export const LinearDiagram: FC<ILinearDiagram> = ({title, values, total}) => {
     const maxValue = Math.max(...values.map(x => x.value))
-
-    const sum = 0
+    const totalTimeForDay = convertSecondsToTimeFormat(total ? ~~total : 0 )
+    const totalTimeWithMeasue = `${getHour(totalTimeForDay)} часов ${getMinute(totalTimeForDay)} минут ${getSecond(totalTimeForDay)} секунд`
     return <div className={s.linear_gistogram}>
         <Title type={3} message={title}/>
         <div className={s.stat}>
             <Title type={4} message={'Сегодня вы работали'} weight={'regular'}/>
             &nbsp;
-            <Title type={4} message={sum.toString()}/>
+            <Title type={4} message={totalTimeWithMeasue}/>
         </div>
         <div className={s.gistogram}>
             {
@@ -33,7 +36,10 @@ export const LinearDiagram: FC<ILinearDiagram> = ({title, values}) => {
                                 <div className={s.animated_line}/>
                             </LineWrapper>
                             <div className={s.value_wrapper}>
-                                <Title type={3} message={item.value.toString()} color={'secondary'}/>
+                                <Title type={5}
+                                       message={item.label}
+                                       color={'secondary'}
+                                />
                             </div>
                         </div>
                     </div>)
@@ -44,7 +50,7 @@ export const LinearDiagram: FC<ILinearDiagram> = ({title, values}) => {
 
 const LineWrapper = styled.div<{ width: number }>`
   width: ${props => props.width}%;
-  height: 32px;
+  height: 28px;
   margin-right: 6px;
   
 `

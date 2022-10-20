@@ -4,8 +4,10 @@ import {getProfile} from "../../user";
 interface IProfileState {
     user: {
         id: number | null
-        name: string | null
-        dep: string | null
+        first_name: string | null
+        last_name: string | null
+        department: string | null
+        appointment: string | null
         email: string | null
         avatar: string | null
         phoneNumber: string | null
@@ -19,12 +21,14 @@ interface IProfileState {
 const initialState: IProfileState = {
     user: {
         id: null,
-        name: null,
-        dep: null,
+        first_name: null,
+        last_name: null,
+        department: null,
+        appointment: null,
         email: null,
-        post: null,
         avatar: null,
         phoneNumber: null,
+        post: null
     },
     loading: false
 }
@@ -37,8 +41,8 @@ const profileSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-            .addCase(getProfile.fulfilled, (state ) => {
-                state.user = { ...state.user}
+            .addCase(getProfile.fulfilled, (state,{payload} ) => {
+                state.user = { ...state.user, ...payload}
             })
             .addMatcher(isPending, (state) => {
                 state.loading = true

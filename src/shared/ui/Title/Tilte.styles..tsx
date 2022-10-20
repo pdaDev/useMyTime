@@ -8,10 +8,11 @@ interface ITitleWrapper {
 
 export const TitleWrapper = styled.label<ITitleWrapper>`
   padding: 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin: 0;
   line-height: 1em;
+  cursor: inherit;
   min-width: 1px;
   ${props => props.loading && css`
     width: 70%;

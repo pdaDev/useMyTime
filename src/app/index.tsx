@@ -5,6 +5,8 @@ import {ErrorBoundary, Layout, Loader, NotifyPopap, useSetTheme} from "shared";
 import {HeaderNavbarLayout} from "../widgets/header";
 import {useAuthRedirect} from "../entities/user/lib/hooks";
 import {withInit} from "./hocs/withInit";
+import {useToggleTimer, withTimerToggle} from "../entities/timer";
+
 
 const Auth = lazy(() => import('pages/Auth'))
 const About = lazy(() => import('pages/About'))
@@ -14,14 +16,16 @@ const Profile = lazy(() => import('pages/Profile'))
 const Project = lazy(() => import('pages/Project'))
 const Projects = lazy(() => import('pages/Projects'))
 const MyProfile = lazy(() => import('pages/MyProfile'))
-
+const DataManagement = lazy(() => import('pages/DataManagement'))
+const Employees = lazy(() => import('pages/Employees'))
+const Invite = lazy(() => import('pages/Invite'))
 
 const App = () => {
 
 
     useSetTheme()
     useAuthRedirect()
-
+    useToggleTimer()
 
     return (
         <React.Suspense fallback={<Layout.Center>
@@ -43,8 +47,11 @@ const App = () => {
                                 <Route path={'/projects'} element={<Projects/>}/>
                                 <Route path={'/project/:id'} element={<Project/>}/>
                                 <Route path={'/me'} element={<MyProfile/>}/>
-                                <Route path={'/profile/:id'} element={<Profile/>}/>
+                                <Route path={'/profile/:id/'} element={<Profile/>}/>
                                 <Route path={'/options'} element={<Options/>}/>
+                                <Route path={'/employees'} element={<Employees/>}/>
+                                <Route path={'/dataManagement'} element={<DataManagement/>}/>
+                                <Route path={'/invite/:code'} element={<Invite/>}/>
 
                             </Routes>
                         </React.Suspense>
@@ -58,4 +65,4 @@ const App = () => {
     )
 }
 
-export default withInit(App)
+export default withInit(withTimerToggle(App))
