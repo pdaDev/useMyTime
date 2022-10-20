@@ -10,7 +10,6 @@ interface ProfileCardProps {
     dep: string
     avatar?: null | string
     post: string
-    canEdit: boolean
     email: string
     id: number,
     loading?: boolean,
@@ -18,7 +17,6 @@ interface ProfileCardProps {
 
 export const ProfileCard: FC<ProfileCardProps> = (
     {
-        canEdit,
         dep,
         post,
         name,
@@ -67,9 +65,6 @@ export const ProfileCard: FC<ProfileCardProps> = (
                    <Title type={4} message={email || ''}/>
                </div>
            </div>
-            {
-                canEdit && <></>
-            }
         </div>
     </div>
 }

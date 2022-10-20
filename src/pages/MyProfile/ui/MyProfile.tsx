@@ -16,13 +16,11 @@ export const MyProfile: FC = () => {
      const dispatch = appUseDispatch()
     const logOut = () => dispatch(logout())
     return <div className={s.container}>
-        <ProfileCard canEdit={true}
-                     name={name}
+        <ProfileCard name={name}
                      id={id}
                      dep={department}
                      post={appointment}
                      email={email}
-                     phoneNumber={''}
         />
         <DownloadReportBlock />
         <div className={s.logout}
